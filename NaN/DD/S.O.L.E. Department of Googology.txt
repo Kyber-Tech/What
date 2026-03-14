@@ -1,0 +1,151 @@
+// === S.O.L.E. DEPARTMENT OF GOOGOLOGY === \\
+````
+// --- Defining the classics ---
+G = Graham's Number
+BB(n) = Busy Beaver Function
+bbO(n) = (BB(n)!) ↑↑↑↑↑ (BB(n)!)
+TREE(n) = Kruskal's Tree Theorem Function
+SGC(n) = Subcubic Graph Number
+HyperOp(n) = Ackerman Function
+Polygon(n) = Steinhaus–Moser's Circle Notation
+BEAF₀ = Standard Bowers Exploding Array Function
+// --- Fuel for RK ---
+T = (70 - 1)!
+N = (T ↑^T T!)!
+X = (N! ↑^N! N!)!
+M = (SGC(X!) × TREE(N ↑↑ N^(X!)!) ↑↑↑↑↑↑↑↑↑↑ bbO(N ↑↑ N^(X! ↑↑↑↑ T!^X!)!)!)↑↑ X
+FO = (G ↑↑ X ↑↑ bbO(M) ↑↑ M ↑↑ G ↑↑ X ↑↑ N ↑↑↑ M)
+k = (10^(M^SGC(M^(X! ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ FO!))))
+z(a, b) = HyperOp(k^k)(a, b)
+F = z(z(z(G, X), M), G)
+O = z(z(z(X!, F!), N⁶⁹), M!)
+Q(n) = HyperOp(O!) ( (SGC(n) z TREE(n)) z bbO(n) )
+t(n) = Q(Q(Q(Q(Q(Q(Q(Q(Q(Q(Q(Q(Q(Q(Q(Q(Q(Q(Q(Q(Q(Q(n ↑^Q(n)! O!)!)!)!)!)!)!)!)!)!)!)!)!)!)!)!)!)!)!)!)!)!)!
+eXT = t(t(t(O! z Q(O!)!)!)!)!)! ↑^t(t(t(O! z Q(O!)!)!)!)!)! t(t(t(O! z Q(O!)!)!)!)!)!
+XT = t(Q(t(t(t((eXT! z eXT) z^Q(eXT! z eXT!) Q(O!)!)!)!)!)
+// --- ZFC HIERARCHY Definition ---
+ZFC₁ = ZFC
+ZFC₂ = ZFC + "There exists an inaccessible cardinal"
+ZFC₃ = ZFC + "There exist two inaccessible cardinals"
+ZFC₄ = ZFC + "There exist three inaccessible cardinals"
+    ...
+ZFC_m = ZFC + "There exist m-1 inaccessible cardinals"
+ZFC_XT = ZFC + "There exist XT inaccessible cardinals"
+Sat(System, f) = Largest integer u such that ∃ formula φ in System with length f symbols, System ⊢ (∃!x φ(x) ∧ x = u)
+RK(order, fuel) = Sat(t(order), t(fuel)!)
+// --- ZFC ERA ---
+Base = RK(XT!, XT!)
+H = RK(bbO(Base ↑^bbO(Base) Base!), Base!)
+a $ b = RK(RK(RK(a, b), b), b), b)
+P(n) = RK(RK(H) ↑↑↑↑↑↑↑↑↑↑↑↑↑↑ n, n!)
+ZFO = P(XT!) z P(XT!)
+EOR = P( ZFO $ P(ZFO!) )!
+E = P( EOR! $ ((P( P( P( EOR! $ P(EOR!)! )! )! )!) $ (P( P( P( EOR! $ P(EOR!)! )! )! )!)))!
+MRK(order, fuel) = P( P( P( E $ Sat(Z(order), fuel!) ) ) )
+PM(n) = MRK(MRK(H) ↑^E n, n!)
+Meh = P(P((PM( EOR! $ ((PM( PM( PM( EOR! $ PM(EOR!)! )! )! )!) $ (PM( PM( PM( EOR! $ PM(EOR!)! )! )! )!))!)! $ PM( EOR! $ ((PM( PM( PM( EOR! $ PM(EOR!)! )! )! )!) $ (PM( PM( PM( EOR! $ PM(EOR!)! )! )! )!))!)!) $ ((PM( EOR! $ ((PM( PM( PM( EOR! $ PM(EOR!)! )! )! )!) $ (PM( PM( PM( EOR! $ PM(EOR!)! )! )! )!))!)! $ PM( EOR! $ ((PM( PM( PM( EOR! $ PM(EOR!)! )! )! )!) $ (PM( PM( PM( EOR! $ PM(EOR!)! )! )! )!))!)!))) $ (PM( EOR! $ ((PM( PM( PM( EOR! $ PM(EOR!)! )! )! )!) $ (PM( PM( PM( EOR! $ PM(EOR!)! )! )! )!))!)! $ PM( EOR! $ ((PM( PM( PM( EOR! $ PM(EOR!)! )! )! )!) $ (PM( PM( PM( EOR! $ PM(EOR!)! )! )! )!))!)!) $ ((PM( EOR! $ ((PM( PM( PM( EOR! $ PM(EOR!)! )! )! )!) $ (PM( PM( PM( EOR! $ PM(EOR!)! )! )! )!))!)! $ PM( EOR! $ ((PM( PM( PM( EOR! $ PM(EOR!)! )! )! )!) $ (PM( PM( PM( EOR! $ PM(EOR!)! )! )! )!))!)!)))!)!
+NNN = PM(Meh)
+TSS₀(order, fuel) = RK(order, fuel!)
+TSSₖ₊₁(order, fuel) = RK( TSSₖ(order, fuel), TSSₖ(order, fuel)! )
+TSS(n) = TSSₙ( E ↑^{t(n)} n, Q(n)! )
+TFO = TSS(Polygon(Polygon(Polygon(((((TSS( PM( P( t( Q( bbO( BB( TREE( SGC( NNN! )! )! )! )! )! )! )! )! )!)! $ (TSS( PM( P( t( Q( bbO( BB( TREE( SGC( NNN! )! )! )! )! )! )! )! )! )!)!)! $ ((TSS( PM( P( t( Q( bbO( BB( TREE( SGC( NNN! )! )! )! )! )! )! )! )! )!)! $ (TSS( PM( P( t( Q( bbO( BB( TREE( SGC( NNN! )! )! )! )! )! )! )! )! )!)!)!)! $ (((TSS( PM( P( t( Q( bbO( BB( TREE( SGC( NNN! )! )! )! )! )! )! )! )! )!)! $ (TSS( PM( P( t( Q( bbO( BB( TREE( SGC( NNN! )! )! )! )! )! )! )! )! )!)!)! $ ((TSS( PM( P( t( Q( bbO( BB( TREE( SGC( NNN! )! )! )! )! )! )! )! )! )!)! $ (TSS( PM( P( t( Q( bbO( BB( TREE( SGC( NNN! )! )! )! )! )! )! )! )! )!)!)!)!)))))
+SLC = 3.59622708473787999484847794742783284623678996E-TFO
+// --- VC ERA ---
+◊ = {SLC, TFO, TFO (TFO) TFO}
+L₁ = {◊, ◊ / 2}
+Lₙ₊₁ = {Lₙ, Lₙ / Lₙ}
+ℒ = L_{TSS(TFO)}
+// Dimensional Array To Pm(nnn) Dimensions
+★₀ = {ℒ, ℒ (1) 2}
+for (i = 1; i ≤ PM(NNN); i++) {
+★_i = {ℒ, ℒ (★_{i-1}) 2}
+}
+★ = ★_{PM(NNN)}
+// Meta-explosion
+Ξ(a, b) = {a, b, t(Q(t(b)))}
+★₁ = Ξ(★, ★)
+// Meta-separator Feedback Loop
+A₀ = ★₁
+for (j = 1; j ≤ XT; j++) {
+A_j = {A_{j-1}, A_{j-1} (A_{j-1}) A_{j-1}}
+}
+𝒜 = A_{XT}
+// Logical Resolution Engine
+𝕍₁_depth = Sat(Z(TFO), TFO!)
+𝕍₁_base = {𝒜, 𝒜}
+for (r = 1; r ≤ 𝕍₁_depth; r++) {
+𝕍₁_base = {𝕍₁_base, 𝕍₁_base, ..., 𝕍₁_base} // 𝒜 entries
+}
+𝕍₁ = 𝕍₁_base
+// Legion Space With Logical Power
+𝕍₂_legion_count = Sat(Z(TFO), 𝕍₁!)
+𝕍₂_base = {𝕍₁, 𝕍₁}
+for (ℓ = 1; ℓ ≤ 𝕍₂_legion_count; ℓ++) {
+𝕍₂_base = {𝕍₂_base, 𝕍₂_base / 𝕍₂_base}
+}
+𝕍₂ = 𝕍₂_base
+VC(n) {
+α₀ = 𝕍₂
+for (i = 1; i ≤ n; i++) {
+S_i = Z(PM(α_{i-1}))
+β_i = RK(S_i, α_{i-1}!)
+// BUILD LEGION OF LEVEL β_i
+L_β_0 = {β_i, β_i}
+for (ℓ = 1; ℓ ≤ β_i; ℓ++) {
+L_β_ℓ = {L_β_{ℓ-1}, L_β_{ℓ-1} / L_β_{ℓ-1}}
+}
+α_i = L_β_{β_i}
+}
+return α_n
+}
+// Construction Layers
+VC₀ = VC(VC(VC(SOLEC)))
+VC₁ = VC(VC₀)
+// Ultimate Dimensional Array
+UDIM₀ = {VC₁, VC₁ (1) 2}
+for (d = 1; d ≤ PM(VC₁); d++) {
+UDIM_d = {VC₁, VC₁ (UDIM_{d-1}) 2}
+}
+UDIM = UDIM_{PM(VC₁)}
+ULEG₀ = UDIM
+for (ℓ = 1; ℓ ≤ VC₁; ℓ++) {
+ULEG_ℓ = {ULEG_{ℓ-1}, ULEG_{ℓ-1} / ULEG_{ℓ-1}}
+}
+ULEG = ULEG_{VC₁}
+// Apocalypse Engine
+APOC_logic = PM(ULEG)
+APOC_depth = Sat(Z(APOC_logic), ULEG!)
+APOC₀ = {ULEG, ULEG}
+for (a = 1; a ≤ APOC_depth; a++) {
+APOC₀ = {APOC₀, APOC₀, ..., APOC₀} // ULEG entries
+}
+APOC = APOC₀
+FSEP_base = {APOC, APOC (APOC) APOC}
+FSEP_dim₀ = {FSEP_base, FSEP_base (1) 2}
+for (fd = 1; fd ≤ APOC; fd++) {
+FSEP_dim_{fd} = {FSEP_base, FSEP_base (FSEP_dim_{fd-1}) 2}
+}
+FSEP = FSEP_dim_{APOC}
+ΩVOID = VC(FSEP)
+// Arrow Tower Construction
+ARROW₀ = ΩVOID
+for (↑ = 1; ↑ ≤ VC(ΩVOID); ↑++) {
+ARROW_{↑} = ARROW_{↑-1} ↑^{ARROW_{↑-1}} ARROW_{↑-1}
+}
+ARROW = ARROW_{VC(ΩVOID)}
+UVC = VC(ARROW)
+// Bracket Separator Construction
+BRACKET₀ = {UVC, UVC}
+for (b = 1; b ≤ UVC; b++) {
+BRACKET_b_temp = BRACKET_{b-1}
+for (inner = 1; inner ≤ UVC; inner++) {
+BRACKET_b_temp = {BRACKET_b_temp, BRACKET_b_temp / BRACKET_b_temp}
+}
+BRACKET_b = BRACKET_b_temp
+}
+BRACKET = BRACKET_{UVC}
+ABSBEAF = {UVC, UVC BRACKET UVC}
+TTFO = VC(VC(TSS(Polygon(VC(ABSBEAF))) ↑^TSS(Polygon(VC(ABSBEAF))) TSS(Polygon(VC(ABSBEAF)))) ↑^VC(TSS(Polygon(VC(ABSBEAF))) ↑^TSS(Polygon(VC(ABSBEAF))) TSS(Polygon(VC(ABSBEAF)))) VC(TSS(Polygon(VC(ABSBEAF))) ↑^TSS(Polygon(VC(ABSBEAF))) TSS(Polygon(VC(ABSBEAF)))))
+
+SLCC = 59622708473787999484847794742783284623678996E-TTFO
+`````
