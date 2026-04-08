@@ -1,0 +1,244 @@
+import os
+import math
+import numpy as np
+import torch
+import torch.nn as nn
+from torch.nn import functional as F
+from torch.utils.data import Dataset, DataLoader
+from typing import Tuple, Optional, List
+
+# --- 1. OPERATIONAL CONFIGURATION ---
+
+@torch.dataclass
+class OZConfig:
+    vocab_size: int = 256
+    d_model: int = 1024
+    n_layer: int = 12
+    n_head: int = 16
+    d_state: int = 64
+    block_size: int = 2048
+    batch_size: int = 8
+    learning_rate: float = 2e-4
+    weight_decay: float = 0.1
+    device: str = "cuda" if torch.cuda.is_available() else "cpu"
+    precision: torch.dtype = torch.bfloat16 if torch.cuda.is_available() and torch.cuda.get_device_capability(0)[0] >= 8 else torch.float16
+
+# --- 2. ASSOCIATIVE SCAN KERNELS ---
+
+def parallel_associative_scan(A_elements: torch.Tensor, B_elements: torch.Tensor) -> torch.Tensor:
+    """
+    Parallel prefix sum implementation for linear recurrences.
+    Reduces compute depth from O(T) to O(log T).
+    """
+    T = A_elements.size(1)
+    num_steps = int(math.log2(T))
+    
+    # Initial state propagation
+    A_star = A_elements
+    B_star = B_elements
+    
+    for i in range(num_steps):
+        step = 2**i
+        # Shifted components
+        A_prev = A_star[:, :-step, :]
+        B_prev = B_star[:, :-step, :]
+        
+        A_curr = A_star[:, step:, :]
+        B_curr = B_star[:, step:, :]
+        
+        # Associative update: A_new = A_curr * A_prev; B_new = A_curr * B_prev + B_curr
+        A_star[:, step:, :] = A_curr * A_prev
+        B_star[:, step:, :] = A_curr * B_prev + B_curr
+        
+    return B_star
+
+# --- 3. ARCHITECTURAL MODULES ---
+
+class OZ_ManifoldLinear(nn.Module):
+    """
+    Parametrized linear layer.
+    Manifold constraint is maintained via Spectral Normalization.
+    """
+    def __init__(self, in_features: int, out_features: int):
+        super().__init__()
+        self.lin = nn.utils.parametrizations.spectral_norm(
+            nn.Linear(in_features, out_features, bias=False)
+        )
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.lin(x)
+
+class OZ_MahalanobisAttention(nn.Module):
+    """
+    Attention kernel with high-precision covariance whitening.
+    """
+    def __init__(self, config: OZConfig):
+        super().__init__()
+        self.n_head = config.n_head
+        self.head_dim = config.d_model // config.n_head
+        self.qkv = nn.Linear(config.d_model, config.d_model * 3, bias=False)
+        self.proj = OZ_ManifoldLinear(config.d_model, config.d_model)
+        self.scale = 1.0 / math.sqrt(self.head_dim)
+
+    def forward(self, x: torch.Tensor, mask: Optional[torch.Tensor] = None) -> torch.Tensor:
+        B, T, C = x.shape
+        q, k, v = self.qkv(x).chunk(3, dim=-1)
+        
+        q = q.view(B, T, self.n_head, self.head_dim).transpose(1, 2)
+        k = k.view(B, T, self.n_head, self.head_dim).transpose(1, 2)
+        v = v.view(B, T, self.n_head, self.head_dim).transpose(1, 2)
+
+        attn = (q @ k.transpose(-2, -1)) * self.scale
+        
+        # Perform moments calculation in float32 for numerical integrity
+        with torch.cuda.amp.autocast(enabled=False):
+            attn_f32 = attn.float()
+            mu = attn_f32.mean(dim=-1, keepdim=True)
+            sigma = torch.var(attn_f32, dim=-1, keepdim=True) + 1e-6
+            attn_norm = (attn_f32 - mu) * torch.rsqrt(sigma)
+            attn = attn_norm.to(x.dtype)
+        
+        if mask is not None:
+            attn = attn.masked_fill(mask == 0, float('-inf'))
+            
+        probs = F.softmax(attn, dim=-1)
+        out = (probs @ v).transpose(1, 2).reshape(B, T, C)
+        return self.proj(out)
+
+class OZ_ParallelSSM(nn.Module):
+    """
+    State Space Model with Parallel Associative Scan integration.
+    """
+    def __init__(self, config: OZConfig):
+        super().__init__()
+        self.d_model = config.d_model
+        self.d_state = config.d_state
+        
+        self.A_log = nn.Parameter(torch.log(torch.arange(1, self.d_state + 1).float()))
+        self.B_proj = nn.Linear(config.d_model, self.d_state, bias=False)
+        self.C_proj = nn.Linear(self.d_state, config.d_model, bias=False)
+        self.dt_proj = nn.Linear(config.d_model, self.d_state, bias=False)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        B, T, C = x.shape
+        
+        # Compute dynamic parameters
+        A = -torch.exp(self.A_log) # (D_state)
+        dt = F.softplus(self.dt_proj(x)) # (B, T, D_state)
+        B_vals = self.B_proj(x) # (B, T, D_state)
+        
+        # Discretization: A_bar = exp(A * dt), B_bar = (A_bar - 1)/A * B
+        A_bar = torch.exp(A.view(1, 1, -1) * dt)
+        B_bar = ((A_bar - 1.0) / A.view(1, 1, -1)) * B_vals
+        
+        # Parallel integration of the state manifold
+        h_elements = parallel_associative_scan(A_bar, B_bar)
+        
+        return self.C_proj(h_elements)
+
+# --- 4. DATA INFRASTRUCTURE (VIRTUALIZED) ---
+
+class MemoryMappedDataset(Dataset):
+    def __init__(self, path: str, block_size: int):
+        self.block_size = block_size
+        # Memory map the binary file for zero-RAM ingestion
+        self.data = np.memmap(path, dtype=np.uint8, mode='r')
+        self.length = len(self.data) - block_size - 1
+
+    def __len__(self):
+        return self.length
+
+    def __getitem__(self, i):
+        # Slicing is handled by OS demand paging
+        x = torch.from_numpy(self.data[i : i + self.block_size].astype(np.int64))
+        y = torch.from_numpy(self.data[i + 1 : i + self.block_size + 1].astype(np.int64))
+        return x, y
+
+# --- 5. SYSTEM INTEGRATION ---
+
+class OZ_Block(nn.Module):
+    def __init__(self, config: OZConfig):
+        super().__init__()
+        self.norm1 = nn.RMSNorm(config.d_model, eps=1e-6)
+        self.ssm = OZ_ParallelSSM(config)
+        self.norm2 = nn.RMSNorm(config.d_model, eps=1e-6)
+        self.attn = OZ_MahalanobisAttention(config)
+        self.norm3 = nn.RMSNorm(config.d_model, eps=1e-6)
+        self.mlp = nn.Sequential(
+            OZ_ManifoldLinear(config.d_model, 4 * config.d_model),
+            nn.SiLU(),
+            OZ_ManifoldLinear(4 * config.d_model, config.d_model)
+        )
+
+    def forward(self, x: torch.Tensor, mask: Optional[torch.Tensor] = None) -> torch.Tensor:
+        x = x + self.ssm(self.norm1(x))
+        x = x + self.attn(self.norm2(x), mask)
+        x = x + self.mlp(self.norm3(x))
+        return x
+
+class OZ_v250(nn.Module):
+    def __init__(self, config: OZConfig):
+        super().__init__()
+        self.config = config
+        self.embedding = nn.Embedding(config.vocab_size, config.d_model)
+        self.blocks = nn.ModuleList([OZ_Block(config) for _ in range(config.n_layer)])
+        self.ln_f = nn.RMSNorm(config.d_model, eps=1e-6)
+        self.head = nn.Linear(config.d_model, config.vocab_size, bias=False)
+
+    def forward(self, idx: torch.Tensor, targets: Optional[torch.Tensor] = None) -> Tuple[torch.Tensor, Optional[torch.Tensor]]:
+        T = idx.size(1)
+        x = self.embedding(idx)
+        mask = torch.tril(torch.ones(T, T, device=idx.device)).view(1, 1, T, T)
+        
+        for block in self.blocks:
+            x = block(x, mask)
+            
+        logits = self.head(self.ln_f(x))
+        loss = F.cross_entropy(logits.view(-1, self.config.vocab_size), targets.view(-1)) if targets is not None else None
+        return logits, loss
+
+# --- 6. EXECUTION ENGINE ---
+
+def main():
+    config = OZConfig()
+    if not os.path.exists("input.txt"):
+        with open("input.txt", "wb") as f: f.write(b"OZ operational status: active.")
+        
+    dataset = MemoryMappedDataset("input.txt", config.block_size)
+    model = OZ_v250(config).to(config.device)
+    
+    # Optimizer configuration: Weight decay exclusion
+    decay = set()
+    no_decay = set()
+    for mn, m in model.named_modules():
+        for pn, p in m.named_parameters():
+            if pn.endswith('weight') and isinstance(m, (nn.Linear, OZ_ManifoldLinear)):
+                decay.add(f"{mn}.{pn}" if mn else pn)
+            else:
+                no_decay.add(f"{mn}.{pn}" if mn else pn)
+
+    param_dict = {pn: p for pn, p in model.named_parameters()}
+    optim_groups = [
+        {"params": [param_dict[pn] for pn in sorted(list(decay))], "weight_decay": config.weight_decay},
+        {"params": [param_dict[pn] for pn in sorted(list(no_decay))], "weight_decay": 0.0},
+    ]
+    optimizer = torch.optim.AdamW(optim_groups, lr=config.learning_rate)
+    scaler = torch.cuda.amp.GradScaler(enabled=(config.precision == torch.float16))
+
+    loader = DataLoader(dataset, batch_size=config.batch_size, shuffle=True)
+    
+    print(f"OZ v2.5.0 Deployment. Linear Recurrence parallelized via Associative Scan.")
+    model.train()
+    for x, y in loader:
+        x, y = x.to(config.device), y.to(config.device)
+        with torch.cuda.amp.autocast(dtype=config.precision):
+            _, loss = model(x, y)
+        
+        optimizer.zero_grad(set_to_none=True)
+        scaler.scale(loss).backward()
+        scaler.step(optimizer)
+        scaler.update()
+        print(f"Loss: {loss.item():.4f}", end='\r')
+
+if __name__ == "__main__":
+    main()

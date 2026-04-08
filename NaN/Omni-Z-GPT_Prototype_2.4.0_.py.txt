@@ -1,0 +1,233 @@
+import os
+import math
+import time
+import yaml
+import torch
+import torch.nn as nn
+from torch.nn import functional as F
+from torch.utils.data import Dataset, DataLoader
+from typing import Tuple, Optional, List, Dict
+
+# --- 1. CONFIGURATION & HYPERPARAMETERS ---
+@torch.dataclass
+class OZConfig:
+    vocab_size: int = 256
+    d_model: int = 1024
+    n_layer: int = 12
+    n_head: int = 16
+    d_state: int = 64         # Latent state dimensionality for CTLD
+    dropout: float = 0.1
+    learning_rate: float = 1e-4
+    weight_decay: float = 0.1
+    batch_size: int = 16
+    block_size: int = 2048
+    device: str = "cuda" if torch.cuda.is_available() else "cpu"
+    precision: torch.dtype = torch.bfloat16 if torch.cuda.is_available() and torch.cuda.get_device_capability(0)[0] >= 8 else torch.float16
+
+# --- 2. MATHEMATICAL KERNELS ---
+
+class BjörckOrthogonalization:
+    """Provides iterative manifold constraint to weight matrices."""
+    @staticmethod
+    def apply(w: torch.Tensor, iters: int = 3) -> torch.Tensor:
+        a = w
+        for _ in range(iters):
+            a = 1.5 * a - 0.5 * a @ a.transpose(-2, -1) @ a
+        return a
+
+class OZ_ManifoldLinear(nn.Module):
+    """Linear layer with Stiefel manifold constraints via spectral normalization."""
+    def __init__(self, in_features: int, out_features: int):
+        super().__init__()
+        self.weight = nn.Parameter(torch.randn(out_features, in_features))
+        nn.init.orthogonal_(self.weight)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        # Enforce isometry during the forward pass
+        w_hat = BjörckOrthogonalization.apply(F.normalize(self.weight, p=2, dim=1))
+        return F.linear(x, w_hat)
+
+class OZ_MahalanobisAttention(nn.Module):
+    """Covariance-invariant attention mechanism."""
+    def __init__(self, config: OZConfig):
+        super().__init__()
+        self.n_head = config.n_head
+        self.head_dim = config.d_model // config.n_head
+        self.qkv = nn.Linear(config.d_model, config.d_model * 3, bias=False)
+        self.proj = OZ_ManifoldLinear(config.d_model, config.d_model)
+        self.scale = 1.0 / math.sqrt(self.head_dim)
+
+    def forward(self, x: torch.Tensor, mask: Optional[torch.Tensor] = None) -> torch.Tensor:
+        B, T, C = x.shape
+        q, k, v = self.qkv(x).chunk(3, dim=-1)
+        
+        q = q.view(B, T, self.n_head, self.head_dim).transpose(1, 2)
+        k = k.view(B, T, self.n_head, self.head_dim).transpose(1, 2)
+        v = v.view(B, T, self.n_head, self.head_dim).transpose(1, 2)
+
+        # Compute cross-covariance for whitening
+        attn = (q @ k.transpose(-2, -1)) * self.scale
+        
+        # Manifold-based score normalization
+        mu = attn.mean(dim=-1, keepdim=True)
+        sigma = torch.var(attn, dim=-1, keepdim=True) + 1e-6
+        attn = (attn - mu) * torch.rsqrt(sigma)
+        
+        if mask is not None:
+            attn = attn.masked_fill(mask == 0, float('-inf'))
+            
+        probs = F.softmax(attn, dim=-1)
+        out = (probs @ v).transpose(1, 2).reshape(B, T, C)
+        return self.proj(out)
+
+class OZ_ContinuousTimeState(nn.Module):
+    """Discretized Differential Equation for latent state integration."""
+    def __init__(self, config: OZConfig):
+        super().__init__()
+        self.d_model = config.d_model
+        self.d_state = config.d_state
+        
+        # Learnable transition and influence matrices
+        self.A_log = nn.Parameter(torch.log(torch.arange(1, self.d_state + 1).float()))
+        self.B_proj = nn.Linear(config.d_model, self.d_state, bias=False)
+        self.C_proj = nn.Linear(self.d_state, config.d_model, bias=False)
+        self.dt_proj = nn.Linear(config.d_model, 1, bias=False)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        B, T, C = x.shape
+        h = torch.zeros(B, self.d_state, device=x.device, dtype=x.dtype)
+        A = -torch.exp(self.A_log)
+        
+        outputs = []
+        for t in range(T):
+            xt = x[:, t, :]
+            # Compute time-step (dt) based on local semantic density
+            dt = F.softplus(self.dt_proj(xt))
+            
+            # Discretization via Zero-Order Hold (ZOH)
+            dA = torch.exp(A * dt)
+            dB = (dA - 1.0) / A * self.B_proj(xt)
+            
+            # State transition: h(t) = dA * h(t-1) + dB
+            h = dA * h + dB
+            outputs.append(self.C_proj(h).unsqueeze(1))
+            
+        return torch.cat(outputs, dim=1)
+
+# --- 3. THE INTEGRATED SYSTEM ---
+
+class OZ_Block(nn.Module):
+    def __init__(self, config: OZConfig):
+        super().__init__()
+        self.ln1 = nn.RMSNorm(config.d_model, eps=1e-6)
+        self.ct_state = OZ_ContinuousTimeState(config)
+        self.ln2 = nn.RMSNorm(config.d_model, eps=1e-6)
+        self.attn = OZ_MahalanobisAttention(config)
+        self.ln3 = nn.RMSNorm(config.d_model, eps=1e-6)
+        self.mlp = nn.Sequential(
+            OZ_ManifoldLinear(config.d_model, 4 * config.d_model),
+            nn.GELU(),
+            OZ_ManifoldLinear(4 * config.d_model, config.d_model)
+        )
+
+    def forward(self, x: torch.Tensor, mask: Optional[torch.Tensor] = None) -> torch.Tensor:
+        x = x + self.ct_state(self.ln1(x))
+        x = x + self.attn(self.ln2(x), mask)
+        x = x + self.mlp(self.ln3(x))
+        return x
+
+class OZ_v240(nn.Module):
+    def __init__(self, config: OZConfig):
+        super().__init__()
+        self.config = config
+        self.embedding = nn.Embedding(config.vocab_size, config.d_model)
+        # Spectral density positional mapping
+        self.pos_emb = nn.Parameter(torch.randn(1, config.block_size, config.d_model) * 0.02)
+        self.blocks = nn.ModuleList([OZ_Block(config) for _ in range(config.n_layer)])
+        self.ln_f = nn.RMSNorm(config.d_model, eps=1e-6)
+        self.head = nn.Linear(config.d_model, config.vocab_size, bias=False)
+
+    def forward(self, idx: torch.Tensor, targets: Optional[torch.Tensor] = None) -> Tuple[torch.Tensor, Optional[torch.Tensor]]:
+        B, T = idx.shape
+        x = self.embedding(idx) + self.pos_emb[:, :T, :]
+        
+        # Causal mask generation
+        mask = torch.tril(torch.ones(T, T, device=idx.device)).view(1, 1, T, T)
+        
+        for block in self.blocks:
+            x = block(x, mask)
+            
+        logits = self.head(self.ln_f(x))
+        
+        loss = None
+        if targets is not None:
+            loss = F.cross_entropy(logits.view(-1, self.config.vocab_size), targets.view(-1))
+            
+        return logits, loss
+
+# --- 4. DATA & TRAINING INFRASTRUCTURE ---
+
+class ByteDataset(Dataset):
+    def __init__(self, path: str, block_size: int):
+        if not os.path.exists(path):
+            with open(path, "w") as f: f.write("Operational sequence data placeholder.")
+        with open(path, "rb") as f:
+            self.data = f.read()
+        self.block_size = block_size
+
+    def __len__(self):
+        return len(self.data) - self.block_size
+
+    def __getitem__(self, i):
+        chunk = self.data[i:i + self.block_size + 1]
+        d = torch.tensor(list(chunk), dtype=torch.long)
+        return d[:-1], d[1:]
+
+class OZ_Trainer:
+    def __init__(self, model: nn.Module, config: OZConfig):
+        self.model = model
+        self.config = config
+        self.optimizer = torch.optim.AdamW(model.parameters(), lr=config.learning_rate, weight_decay=config.weight_decay)
+        self.scaler = torch.cuda.amp.GradScaler(enabled=(config.precision == torch.float16))
+
+    def train(self, dataset: Dataset, epochs: int = 1):
+        loader = DataLoader(dataset, batch_size=self.config.batch_size, shuffle=True)
+        self.model.train()
+        
+        for epoch in range(epochs):
+            for i, (x, y) in enumerate(loader):
+                x, y = x.to(self.config.device), y.to(self.config.device)
+                
+                with torch.cuda.amp.autocast(dtype=self.config.precision):
+                    _, loss = self.model(x, y)
+                
+                self.optimizer.zero_grad(set_to_none=True)
+                self.scaler.scale(loss).backward()
+                self.scaler.step(self.optimizer)
+                self.scaler.update()
+                
+                if i % 10 == 0:
+                    print(f"Epoch {epoch} | Batch {i} | Loss: {loss.item():.4f}")
+
+# --- 5. EXECUTION ---
+
+def main():
+    config = OZConfig()
+    model = OZ_v240(config).to(config.device)
+    
+    # Analyze parameter distribution
+    total_params = sum(p.numel() for p in model.parameters())
+    print(f"OZ v2.4.0 Engine Initialized. Parameters: {total_params/1e6:.2f}M")
+    
+    # Initialize dataset
+    dataset = ByteDataset("input.txt", config.block_size)
+    
+    # Initialize trainer
+    trainer = OZ_Trainer(model, config)
+    
+    # Start operational cycle
+    print("Initiating training sequence...")
+    trainer.train(dataset)
+
+if __name__ == "__main__":
+    main()
