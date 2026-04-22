@@ -1,0 +1,465 @@
+# **Unified Power-Scaling System for General Use (V 1.9.0)**
+Abbreviation: UPSGC
+Version: 1.9.0
+Issuer: S.O.L.E Information Agency
+
+Preface: This system is designed to rank fictional characters and entities based on a consistent and objective set of criteria, creating a clear, unified system of clarity for VS debates.
+
+—
+
+### **Core Evaluation Criteria (CEC)**
+
+1.  **Destructive & Creative Capacity  (DCC)**: 
+    *   **Max DDC (MDDC)**: The maximum scale of any of the statistics below that a character can achieve through a direct, demonstrable feat.
+    *   **Avg DDC (ADDC)**: The average scaVelocityle of any of the statistics below that a character can achieve through a direct, demonstrable feat.
+2.  **Physicality**: A measure of a character's raw physical capabilities. 
+    *   **Strength **: A category that encompasses a character's striking and lifting strength.
+        *   **Striking Strength (SS)**: The physical force a character can exert through impacts. (Expressed in: Joules)
+            *    **Equation**: SS = \frac{1}{2} m v^2. m = Mass of the limb/weapon, v = Combat Speed at impact.
+        *   **Lifting Strength (LS)**: The maximum weight a character can physically lift (and/or move with). (Expressed in: Kilograms to Tonnes to physical analogical/reference objects)
+    *   **Speed**: A category that encompasses a character's reaction, processing and travel speed. (Expressed in: the tables below)
+        *   **Processing/Reaction Speed (RT)**: The ‘DA’ in OODA loop (Observe, Orient, Decide, Act). Measures how much time the character takes to process and react to an event. 
+            **BlitzSieg Event:** If Character A's Reaction Time is generally 10 to 100+ times faster than Character B's, the battle is considered a "Blitzsieg". because conceptually, in that speed, Character B cannot utilize any proactive Hax unless they have passive/automatic defenses.
+        *   **Travel Speed (TSPD)**: Measures the fastest speed the character can travel consistently.
+        *   **Combat Speed (CSPD)**: Combat Speed is the average sum of Travel Speed and Reaction Time unless a character has a speed-based Hax (e, g, Precognition).
+            *    **Equation**: CSPD = TSPD + \left( \frac{k}{RT} \right). k = "Action Constant" (The distance a character moves in an single combat maneuver at average)
+3.  **Scope of Influence (SoI)**: The total range a character's power and presence can affect. (Expressed in: Mainly in Tiers, but the equation below works)
+            *    **Equation**: E_{SoI} \propto r^n
+                *   *For Street to City (Tiers 1–4): n \approx 2 (Surface area devastation).*
+                *   *For Planetary (Tier 5): n \approx 3 (Gravitational Binding Energy).*
+                *   **Planetary Destruction (Tier 5.3):** U = \frac{3GM^2}{5R} (The energy required to overcome a planet's gravity).
+4.  **Special Abilities (Hax)**: Reality-defying powers that bypass conventional durability or power levels. (Expressed in: The name, description and methods of the Hax)
+5.  **Resistances & Immunities (RI)**: A character's ability to negate or withstand specific attacks, including physical, energy, and hax-based assaults. (Expressed in: Immunity Hax)
+6.  **Strategic Intelligence (SI)**: The character's tactical ability to effectively utilize their powers and exploit an opponent's weaknesses. (Expressed in: Feats)
+7. **Mental & Psychological State (MPS)**: This evaluates a character's mental fortitude, willpower, and their ability to inflict or resist psychological attacks. The levels are divided into 7 tiers (**Absolute > Strong > High > Moderate > Low > Weak > Non-existent.**) and The stat itself is divided into two sub-categories (Offensive/Defensive). (Expressed in: MPS Tiers)
+            *    **Equation**: **Resistance Probability Function ($P_{res}$)**; The probability that Character A resists the psychological attack of Character B:
+$$P_{res} = \frac{1}{1 + e^{-(PsyR_A - PsyA_B)}}$$
+                *   *$PsyR_A$: Defensive Tier of Character A.*
+                *   *$PsyA_B$: Offensive Tier of Character B.*
+                *   *If $PsyR_A \gg PsyA_B$, the probability of resistance approaches 1.0 (Absolute).*
+    *   **MPS Tiers (Psy-R)**: 
+            *    Psy-R: 
+                *   Absolute: Total mental transcendence. Can witness the collapse of a multiverse or the "Truth" of the Monad without losing sanity. Immune to conceptual madness and "Eldritch Truths."
+                    *   Example: Dr. Manhattan (*DC Comics*), Elder/Outer Gods (*Lovecraft Mythos*)
+                *   Strong: Highly disciplined or alien minds. Can resist planetary-scale telepathic probes or reality-altering illusions. Hardened against deep-seated trauma exploitation.
+                    *   Example: Prof. Charles Xavier (*Marvel*/*X-Men*), Geralt of Rivia (*The Witcher*), Martian Manhunter J'onn J'onzz (*Marvel Comics*).
+                *   High: Extraordinary willpower. Can resist long-term psychological torture, supernatural/preternatural tricks, and total mental breakdowns.
+                    *   Example: Ayanokoji (*Classroom of the Elite*), Agent 47 (*Hitman Game*)
+                *   Moderate: Above-average mental discipline. Can resist basic hypnosis, social engineering, and the "intimidation aura" of lower-tier characters. 
+                    *   Example: Batman (*DC Comics*), Captain Price (*Call of Duty*).
+                *   Low: The baseline for a healthy, un-traumatized adult. Susceptible to advanced gaslighting, propaganda, and professional interrogation.
+                    *   Example: Civilians.
+                *   Weak: Vulnerable psyche. Prone to immediate panic, "Breaking" under light pressure, or suffering from debilitating phobias/PTSD that are easily exploited.
+                    *   Example: Hamlet
+                *   Non-existent: Mindless, fully possessed, or "Empty Shells." These entities have no self-will to defend and are essentially "open doors" for manipulation.
+                    *   Example: Reanimated corpses (zombies), mindless drones, Gollum (*Lord of the Rings*).
+    *   **MPS Tiers (Psy-A)**: 
+            *    Psy-R: 
+                *   Absolute: **Cosmic/Conceptual Dread.** Their mere existence or "True Form" causes instantaneous, irreversible psychic collapse or total ego-death in anyone below Tier 11.
+                    *   Example: Elder/Outer Gods (*Lovecraft Mythos*), The Witness (*Destiny 2*).
+                *   Strong: **Mass-Scale Influence.** Can mentally break entire populations, rewrite memories on a large scale, or exert Will—forcing others to bow through raw spiritual pressure.
+                     *   Example: Sauron (*Lord of the Rings*), Lelouch vi Britannia (*Code Geass*).
+                *   High: **Master Manipulator.** Capable of dismantling a strong-willed person’s identity through social engineering, perfect gaslighting, or intense "Fear Induction."
+                    *   Example: Ayanokoji (*Classroom of the Elite*), Johan Liebert (*Monster*).
+                *   Moderate: **Natural Leader/Intimidator.** High-level military command or interrogation skills. Can effectively bluff or intimidate those with "Low" Psy-R into submission.
+                    *   Example: Erwin Smith (*Attack on Titan*), Sherlock Holmes.
+                *   Low: **Average Social Ability.** Standard human interaction; capable of basic lying or persuasion, but no specialized tactical advantage in psychology.
+                    *   Example: Average civilians.
+                *   Weak: **Socially Impaired/Incoherent.** Incapable of projecting authority or deceit. Their attempts at manipulation are transparent and/or easily ignored.
+                    *   Example: A bumbling henchman, an highly distressed victim, an socially impaired individual.
+                *   Non-existent: **Inert.** Entities that lack communication, emotion, or any form of output. They do not interact with the minds of others in any capacity. 
+                    *   Example: A standard Roomba or a basic automaton.
+    *   **MPS Sub-categories**:
+        *   **Psychological Resistance (Psy-R):** A measure of a character's ability to withstand mental and psychological assaults. This includes resisting manipulation, fear inducement, trauma exploitation, illusions, and mind control. Higher Psy-R is often demonstrated by unshakable willpower, a disciplined mind, or specific psychic defenses.
+        *   **Psychological Attack Potency (Psy-A):** A character's ability to use psychological warfare. This is not limited to telepathy; it includes supernatural persuasion, master-level manipulation, fear projection, and the ability to mentally break an opponent through non-physical means. this measures a character’s "Internal Fortitude." Higher levels signify immunity to increasingly supernatural forms of mental interference.
+
+
+---
+
+
+#### **Foundational Principles (Axioms/AIMs)**
+
+*   1. **Feats Over Statements**: On-screen or in-panel demonstrations of power are the primary source of evidence. Exceptions are allowed ONLY IF it's from **lore.**
+*   2. **Consistency is Key**: A character's tier is determined by their consistent power. Exceptions are allowed ONLY IF it's backed by **in-verse lore or character arcs.**
+*   3. **Real-World Baseline**: This system uses real-world physics and cosmology as a baseline for measuring scale to ensure fairness. Exceptions are allowed ONLY IF it's **internally consistent.**
+
+—
+
+### Metrics of SPD (Travel Speed)
+
+#### **Tier 1: Terrestrial & Atmospheric Speeds**
+
+| Category | Measurement | Equivalent Speed (approx.) | Context / Example |
+| :--- | :--- | :--- | :--- |
+| **Snail** | **Meters per hour** | **0.05 km/h** | Garden Snail. |
+| **Human** | **Walk Speed** | **4 km/h** | Strolling speed of an average human. |
+| **Sprint ** | **Running Speed** | **16 km/h** | Running speed of an average human. |
+| **Athletic** | **Top Biological Speed** | **80 km/h** | Usain Bolt's World Record speed. |
+| **Baseline** | **Kilometers per hour** | **100 km/h** (27.7 m/s) | Top Speed of an average car. |
+| **Subsonic** | **High Subsonic** | **900 km/h** (250 m/s) | Commercial Airliner (Boeing 747). Cruising just below the speed of sound. |
+| **Sonic** | **Mach 1** | **1,235 km/h** (343 m/s) | **Speed of Sound** at sea level. The sound barrier. |
+| **Supersonic** | **Mach 2** | **2,470 km/h** (686 m/s) | The Concorde (max speed) or a Rifle Bullet. |
+| **Upper Supersonic** | **Mach 3** | **3,700 km/h** (1,029 m/s) | SR-71 Blackbird (Fastest non-scramjet manned aircraft). |
+
+#### **Tier 2: Space & Orbital Velocities**
+
+| Category | Measurement | Equivalent Speed (approx.) | Context / Example |
+| :--- | :--- | :--- | :--- |
+| **Hypersonic** | **Mach 5** | **6,174 km/h** (1.7 km/s) | scramjets |
+| **Mi/s**| **Miles per second** | **5,793 km/h** (1 Mile/sec) | ~Mach 4.7. Typical speed of seismic waves in the crust. |
+| **Re-entry** | **Mach 25** | **28,000 km/h** (7.8 km/s) | **Orbital Velocity.** Speed required for the ISS to stay in orbit. |
+| **Earth Escape Velocity**| **Mach 33** | **40,320 km/h** (11.2 km/s) | Speed required to break free of Earth's gravity completely. |
+| **Solar Probe level** | **Mach 550** | **692,000 km/h** (192 km/s) | **Parker Solar Probe.** The fastest man-made object in history (using gravity assists). |
+| **Meteorite** | **Mach 800** | **988,000 km/h** (274 km/s) | Fastest comets or stars orbiting close to a supermassive black hole. |
+
+#### **Tier 3: Relativistic & Cosmic Speeds**
+
+| Category | Measurement | Equivalent Speed (approx.) | Context / Example |
+| :--- | :--- | :--- | :--- |
+| **Relativistic** | **1% Speed of Light** | **10.8 Million km/h** (3,000 km/s) | Theoretical speed for nuclear fusion rockets. |
+| **Near Speed of light** | **99.99% Speed of Light** | **1.08 billion km/h** (299762.478 km/s) | The fastest matter can theoretically move without breaking General Relativity. |
+| **Universal Limit**| **Speed of Light ($c$)** | **1.08 Billion km/h** (299,792 km/s) | The cosmic speed Limit, only for Light, photons, radio waves. Nothing with mass can reach this. |
+
+#### **Tier 4: Faster Than Light (FTL)**
+
+| Category | Measurement | Scale vs Light (*c*) | Context / Example |
+| :--- | :--- | :--- | :--- |
+| **FTL** | **Faster than Light** | **> 1 *c*** | Tachyons (hypothetical particles that always move faster than light). |
+| **Warp Speed** | **Warp 1 (Sci-Fi)** | **1 *c*** | *Star Trek* baseline. The speed of light in vacuum. |
+| **Massively FTL**| **Warp 9 (Sci-Fi)** | **1,516 *c*** | *Star Trek (TNG scale).* Crossing a solar system in seconds. |
+| **Massively FTL+**| **Hyperdrive** | **~100,000 *c*** | *Star Wars.* Crossing a galaxy in a few days. |
+| **∞** | **Infinite Velocity** | **infinity** | practically, mathematically and conceptually irrelevant at these speeds. Only achievable via Teleporters, Omnipresence, Translocation etc. |
+
+---
+
+### **Metrics of RT (Reaction Time)**
+
+#### **Tier 1: Human & Sub-Human Reaction Speeds**
+
+| Category | Measurement (Time) | Context |
+| :--- | :--- | :--- |
+| **Sluggish** | 1 second (1 s) or more | Reaction time of a distracted or impaired individual. A deliberate, conscious action. |
+| **Average Human** | 250 milliseconds (0.25 s) | Typical visual stimulus reaction time for a healthy, alert adult. |
+| **Trained Human** | 150 milliseconds (0.15 s) | Peak human reaction under ideal conditions (e.g., elite racing driver at the starting lights). |
+| **Peak Human** | 100 milliseconds (0.1 s) | The absolute biological limit for a human nervous system. Exceptional martial artists or specialized athletes. |
+
+#### **Tier 2: Superhuman Reaction Speeds**
+
+| Category | Measurement (Time) | Context |
+| :--- | :--- | :--- |
+| **Subsonic Reaction** | 10 milliseconds (0.01 s) | Can react to objects moving at high subsonic speeds (~250 m/s) from a reasonable distance. |
+| **Sonic Reaction** | 3 milliseconds (0.003 s) | Can perceive and react to attacks moving at the speed of sound (~343 m/s). |
+| **Supersonic Reaction** | 1 millisecond (0.001 s) | Can track and respond to bullets and supersonic projectiles. |
+| **Upper Supersonic Reaction** | 100 microseconds (0.0001 s / 100 μs) | Reacts to hypersonic munitions or lightning-fast strikes. |
+
+#### **Tier 3: Hyper-Perception & Relativistic Processing**
+
+| Category | Measurement (Time) | Equivalent Context |
+| :--- | :--- | :--- |
+| **Massively Hypersonic Reactor** | 1 microsecond (10⁻⁶ s) | Processes events that occur in the span of a microsecond. Can perceive individual frames of light-speed propagation over short distances. |
+| **Relativistic Reactor** | 1 nanosecond (10⁻⁹ s) | Thought processes occur at the speed of computer circuitry. Can perceive and analyze light itself moving over ~30 cm. |
+| **Light-Speed Reactor** | 1 picosecond (10⁻¹² s) | Perceives molecular vibrations and quantum events. Can react to stimuli approaching *c* at point-blank range. |
+| **Universal Limit Reactor** | 1 Planck Time (~5.39×10⁻⁴⁴ s) | **Theoretical Limit of Causality.** Reaction is functionally instantaneous within a single frame of physical causality. |
+
+#### **Tier 4: Maximum Reactor**
+
+| Category | Measurement (Time) | Description |
+| :--- | :--- | :--- |
+| **Instantaneous** | 0 s | Reaction is not a process but an automatic, unconditioned response. True "thought-speed" action, often a power effect. May only be achievable via precognition, intuition, time manipulation or concepts and/or powers similar to Laplace's Demon. |
+| **Irrelevant** | Acausal | Perception operates outside the flow of linear time. Can "react" to events before they occur (via precognition, viewing alternate timelines, or existing in a state of "all times at once"). |
+
+---
+
+### **Hax & Special Abilities: Dimensionality & Immunity Hax**
+
+A key Hax category in this system that requires specific definition is **Dimensionality** and **Immunity Hax**.
+
+1. **Dimensionality**
+*   **Definition**: In this system, **Dimensionality** is not a measure of a being's inherent level of existence (e.g., a "5D being") but a classification of their **operational range and access**. There are **3 types in total**, which are:
+    *   **Mono-Dimensionality**: The character operates within a single dimensional framework. They may travel to different realms (e.g., Hell, spiritual planes), but these are all part of the same, self-contained plane of existence.
+    *   **Poly-Dimensionality (Hax)**: The character possesses the ability to perceive, access, or influence realities or dimensional planes that are fundamentally separate from their native one. This allows them to interact with a universe's structure from the **outside,** granting a significant tactical advantage.
+    *   **Meta-Dimensionality (Hax)**: A superior version of Poly-Dimensionality. The character inherently possesses **the ability to perceive, interact, access, and/or influence entirely different narratives** that are fundamentally separate from their native one. This allows them to interact with different cosmologies and engage with other stories’ characters.
+
+2. **Immunity Hax**
+*   **Definition**: Immunity Hax is a variant of normal **Hax** (which are typically offensive). These Hax help the character be immune to certain offenses. Higher Levels do not strictly guarantee Lower Level immunities (e, g, A glass cannon wizard being able to resist Reality Warping but dying to a gunshot), they must explicitly be stated. Immunity Hax typically has 6 tiers, which are displayed below. but these are not the only one, every type of new Hax has it's own level of dualistic immunity.
+    *   **Level 0**: **No Immunity**
+        *   **Definition**: The most common one. representing no immunity.
+    *   **Level 1**: **Physical/Energy immunity**
+        *   **Definition**: If subject can resist and/or deflect kinetic and/or magical energy passively, they will be considered to have Lvl 1 Immunity Hax
+    *   **Level 2**: **Spatial/Time immunity**
+        *   **Definition**: if subject can resist space and/or time manipulation, they will be considered to have Lvl 2 Immunity Hax
+    *   **Level 3**: **Conceptual manipulation.**
+        *   **Definition**: if subject can resist conceptual and/or retroactive deletion, they will be considered to have Lvl 3 Immunity Hax
+    *   **Level 4**: **Acausal immunity**
+        *   **Definition**: if subject can resist attacks outside their space continuum and/or can take on acausal attacks, they will be considered to have Lvl 4 Immunity Hax
+    *   **Level 5**: **Omni Immunity** (Immunity to almost everything; Typically reserved for Tier 11+ Characters)
+        *   **Definition**: if the subject has their entire fictional lore and/or cosmology fully reliant on them, they will be considered to have Lvl 5 Immunity Hax.
+
+---
+
+### **SoI Tiers**
+
+#### [μ] **Tier 0.1: Tier Mu**
+*   **Definition**: The lowest tier. A crammed tier representing characters or things that aren't even noticeable, even if they are fundamental to universe.
+*   **DCC/Scope**: Wildcard
+*   **Examples**:
+    *   **Destruction**: Ants
+    *   **Creation**: Quarks
+
+#### 👶 **Tier 0.2: Minor Level**
+*   **Definition**: Characters who are **physically weaker, slower, or less durable than an average healthy adult human**. This can be **due to age, physical condition, and/or a lack of combat training.**
+*   **DCC/Scope**: Limited to manipulating **small, everyday objects**. Their physical impact is negligible in a combat scenario.
+*   **Examples**:
+    *   **Destruction**: A toddler knocking over a large stack of building blocks.
+    *   **Creation**: A child successfully building a small, stable sandcastle or a simple Lego structure.
+
+#### 📉 **Tier 0.3: Under Average Level**
+*   **Definition**: Characters who are **functional but lack physical conditioning.** This includes sedentary adults, young teenagers, or people recovering from injury. They can perform daily tasks but fatigue quickly under stress.
+*   **DCC/Scope**: Can lift objects roughly half or equal to their body weight. 
+*   **Examples**:
+    *   **Destruction**: An unathletic middle-schooler breaking a pencil in frustration.
+    *   **Creation**: A novice attempting to build a birdhouse (functional but crude).
+
+#### 🧍 **Tier 0.4: Civilian Level**
+*   **Definition**: Characters representing **the baseline physical abilities of a typical, healthy adult human without specialized combat or athletic training.**
+*   **DCC/Scope**: Can damage or even break objects made of simple materials like **wood, glass, or drywall with effort**. Can lift their own body weight or slightly more.
+*   **Examples**:
+    *   **Destruction**: An average adult kicking apart a flimsy wooden door or shattering a pane of glass with a thrown object.
+    *   **Creation**: An amateur hobbyist successfully assembling a complex piece of flat-pack furniture or pitching a multi-person tent according to instructions.
+
+#### 🥊 **Tier 0.5: Tough Level**
+*   **Definition**: Characters with **above-average strength or aggression derived from labor or rough living,** but without formal technical training. "Old man strength" or manual laborers fit here.
+*   **DCC/Scope**: Can knock out an average person with a lucky hit. Can write down moderately complex blueprints of structures.
+*   **Examples**:
+    *   **Destruction**: Typical Bar Brawlers.
+    *   **Creation**: A construction worker framing a house structure.
+
+#### 🎖️ **Tier 0.6: Athletic Level**
+*   **Definition**: Characters who **possess physical abilities at the upper limits of what a normal human can achieve through intense and dedicated training.** This includes **Olympic-level athletes, highly trained special forces soldiers, and martial artists.**
+*   **DCC/Scope**: Can damage reinforced objects or dent thin metal through focused strikes. Their actions can affect a small area, like a single opponent or a small part of a room.
+*   **Examples**:
+    *   **Destruction**: Captain Price (*Call of Duty)
+    *   **Creation**: Dr. Edward Richtofen (*Call of Duty: Zombies*)
+
+#### 🏅 **Tier 0.7: Elite Level**
+*   **Definition**: The **peak of realistic human potential.** This includes **Olympic Gold Medalists, Special Forces (SAS/SEALs), and Grandmaster Martial Artists.** They represent the 0.01% of the world.
+*   **DCC/Scope**: Can kill an average human with a single precise strike. Can shatter concrete tiles or baseball bats. are masters of improvisation.
+*   **Examples**:
+    *   **Destruction**: John Wick (*John Wick*)
+    *   **Creation**: MacGyver (*MacGyver*)
+
+#### 🦸 **Tier 0.8: Peak Human**
+*   **Definition**: Characters who operate at **the absolute zenith of human potential, often blurring the line into low-level superhuman territory.** This is the highest level a character can be without being **explicitly being superhuman.**
+*   **DCC/Scope**: Capable of destroying a moderate section of a brick or concrete wall with their physical strikes. Their strength is sufficient to bend weak steel bars or lift over 1,000 pounds (lbs). they can create small but sufficient, high-tech, almost futuristic devices with minor hurdles.
+*   **Examples**:
+    *   **Destruction**: Loid Forger (*Spy x Family*).
+    *   **Creation**: Senku Ishigami (*Dr. Stone*).
+
+#### 🧪 **Tier 0.9: Super-Soldier Level**
+*   **Definition**: Characters who are **explicitly altered or evolved beyond the natural human limit, yet still fall short of destroying buildings.** they are just a inch short of **Tier 1.**
+*   **DCC/Scope**: Can dent steel security doors or run as fast as a car. Can create high-end almost futuristic devices with no problem, or assembling IKEA furniture without even looking at it (Tier 1 Threat).
+*   **Examples**:
+    *   **Destruction**: Captain America (*Marvel Cinematic Universe*)
+    *   **Creation**: Tony Stark (*Marvel Comics*)
+
+#### 🛣️ **Tier 1: Street Level**
+*   **Definition**: Characters with abilities **slightly above or completely in a different domain to peak human potential.**
+*   **DCC/Scope**: A single room to a street corner.
+*   **Examples**:
+    *   **Destruction**: The Punisher (*Marvel Comics*)
+    *   **Creation**: Edward Elric (*Fullmetal Alchemist*)
+
+#### 🏢 **Tier 2: Building Level**
+*   **Definition**: Characters capable of **affecting a single, large structure like a house or small skyscraper.**
+*   **DCC/Scope**: A single building or equivalent area.
+*   **Examples**:
+    *   **Destruction**: Luke Cage (*Marvel Comics*)
+    *   **Creation**: Mei Hatsume (*My Hero Academia*)
+
+#### 🏘️ **Tier 3: City Block Level**
+*   **Definition**: Characters whose attacks can devastate **one or more city blocks.**
+*   **DCC/Scope**: Several hectometers to a kilometer.
+*   **Examples**:
+    *   **Destruction**: Katsuki Bakugo (*My Hero Academia*)
+    *   **Creation**: Shoto Todoroki (*My Hero Academia*)
+
+#### 🏙️ **Tier 4: City Level**
+*   **Definition**: Characters capable of **destroying or fundamentally altering a city.**
+*   **Sub-Tiers & Examples**:
+    *   **Small City Level**:
+        *   **Destruction**: Nappa (*Dragon Ball Z*)
+        *   **Creation**: Kisuke Urahara (*Bleach*)
+    *   **Large City / Mountain Level**:
+        *   **Destruction**: Pain (*Naruto*)
+        *   **Creation**: Sypha Belnades (*Castlevania*)
+
+#### 🪐 **Tier 5: Planetary Level**
+*   **Definition**: Characters capable of **affecting celestial bodies or influencing an planet.**
+*   **Sub-Tiers & Examples**:
+    *   **Country Level**:
+        *   **Destruction**: Escanor (*The Seven Deadly Sins*)
+        *   **Creation**: Hashirama Senju (*Naruto*)
+    *   **Continental Level**:
+        *   **Destruction**: Boros (*One-Punch Man*)
+        *   **Creation**: Storm (*Marvel Comics*)
+    *   **Planet Level**:
+        *   **Destruction**: Frieza (*Dragon Ball Z*)
+        *   **Creation**: Hal Jordan (*DC Comics*)
+
+#### ✨ **Tier 6: Stellar Tier**
+*   **Definition**: Characters who can **destroy or create stars and solar systems.**
+*   **DCC/Scope**: A single star up to an entire solar system.
+*   **Examples**:
+    *   **Destruction**: Silver Surfer (*Marvel Comics*)
+    *   **Creation**: The Sunmaker (*Vaults of Terra: The Hollow Mountain*)
+
+#### 🌌 **Tier 7: Galactic Level**
+*   **Definition**: Characters who can **destroy, create, or fundamentally influence an entire galaxy.**
+*   **DCC/Scope**: Galactic (hundreds of thousands of Astronomical Units).
+*   **Examples**:
+    *   **Destruction**: Beerus (*Dragon Ball Super*)
+    *   **Creation**: Dreaming Celestial Tiamut (*Marvel Comics*)
+
+### [🌌^2] **Tier 8: Multi-Galactic Level**
+*   **Definition**: Characters who can **destroy, create, or fundamentally influence multiple galaxies, galaxy groups, or galactic clusters.** This tier represents the "Mid-Cosmic" scale—entities far beyond a single galaxy's protector but still bound by the physical boundaries of a single universe.
+*   **DCC/Scope**: Affects a range from 2 to several million galaxies or clusters. The distance involved spans millions to hundreds of millions of light-years.
+*   **Examples**:
+    *   **Destruction**: Odin (*Marvel Comics*)
+    *   **Creation**: The Celestials (*Marvel Comics*)
+
+#### 🌐 **Tier 9: Universal Level**
+*   **Definition**: Characters who can **destroy, create, or rewrite the entirety of a single space-time continuum.**
+*   **DCC/Scope**: A single, self-contained universe.
+*   **Examples**:
+    *   **Destruction**: Superboy-Prime (*DC Comics*)
+    *   **Creation**: Franklin Richards (*Marvel Comics*)
+
+#### [🌐^2] **Tier 10: Multiversal Level**
+*   **Definition**: Characters who can **destroy, create, or influence multiple universes.**
+*   **Sub-Tiers & Examples**:
+    *   **Low Multiversal (Finite Universes)**:
+        *   **Destruction**: Zeno (*Dragon Ball Super*)
+        *   **Creation**: Madoka Kaname (*Puella Magi Madoka Magica*)
+    *   **High Multiversal (Infinite Universes)**:
+        *   **Destruction**: Emperor Joker (*DC Comics*)
+        *   **Creation**: The Flash (Barry Allen) (*DC Comics - Flashpoint*)
+
+#### ♾️ **Tier 11: Complex Multiversal Level**
+*   **Definition**: Entities operating on a scale **affecting infinite multiversal structures or higher-dimensional planes that contain lower-level multiverses.**
+*   **DCC/Scope**: Transcends standard multiversal structures.
+*   **Examples**:
+    *   **Destruction**: Elder God Demonbane (*Demonbane*)
+    *   **Creation**: The Beyonder (Pre-Retcon) (*Marvel Comics*)
+
+#### ⚪ **Tier 12: Omniversal Level**
+*   **Definition**: Entities who **embody or hold supreme authority over their entire fictional cosmology, including all realities and dimensions within it.** At this level and above, there are a lot of characters who don't choose either between destruction or creation because they're the apex, we call them "Self-contained."
+*   **DCC/Scope**: The absolute totality of a single fiction.
+*   **Special Type & Examples**:
+    *   **Destruction**: Perpetua (*DC Comics*)
+    *   **Self-contained**: Featherine Augustus  Aurora (*Umineko When They Cry*)
+    *   **Creation**: Doctor Manhattan (*DC Comics*)
+
+#### ⚫ **Tier 13: Monad Level**
+*   **Definition**: **Supreme beings depicted as the ultimate, capital-G "God" of their setting, existing beyond all internal hierarchies as the source of reality itself.** 
+*   **DCC/Scope**: Absolute and boundless within their narrative.
+*   **Examples**:
+    *   **Self-contained**:  The One Above All (*Marvel Comics*), The Presence (*DC Comics*), Kami Tenchi (*Tenchi Muyo!*), etc.
+
+#### [∞]️ **Tier 14: Extra-Fiction**
+*   **Definition**: This tier is reserved for entities or concepts that exist **outside** the fictional narrative itself. They are not characters *in* the story but forces that **dictate** the story. They cannot be used in a conventional VS debate as they operate on a fundamentally different plane of reality from the fiction.
+*   **Examples**:
+    *   **Self-contained**:
+        *   **Meta-Narrative Plot Devices**: In-universe concepts that represent the act of storytelling itself or the medium on which the story is told. (e.g., The Law Of Identity from *Ichiban Ushiro no Daimao*, "Truck-kun" as a universal plot device for the Isekai genre, different Narrators like in *The Stanley Parable*).
+
+#### [Ω]️ **Tier 15: Ultra-Fiction**
+*   **Definition**: This tier is reserved for entities or concepts that exist **outside** the fictional narrative itself. They are not characters *in* the story but forces that **create and dictate** the story. They cannot be used in a conventional VS debate as they operate on a fundamentally different plane of reality from the fiction.
+*   **Examples**:
+    *   **Self-contained**:
+        *   **The Real-World Author**: The actual writer, artist, publishing team, and/or creator (e.g., William Shakespeare, Akira Toriyama, Ufotable, MAPPA, Jack Kirby)
+
+---
+
+### **Demonstration of the System in Practice (AI Generated; ft. Google Gemini)**
+
+This section shows how to use the updated system to analyze a classic "Power vs. Hax" matchup. There may be inconsistencies because this matchup was generated at UPSGC 1.7.9. It was heavily modified by S.O.L.E. personnel at UPSGC 1.8.9.3 and before.
+
+#### **Shallow Matchup: Goku (*Dragon Ball Super - MUI*) vs. Rimuru Tempest (*Tensei Slime - End of of Web Novel*)**
+
+**1. Son Goku (True Ultra Instinct)**
+*   **Sol**: **Tier 9: Universal**
+    *   *Justification*: In his strongest forms, he scales to Tier 9. despite his framework being a macrocosm (Tier 10.1).
+*   **Physicality**:
+    *   **SS**: **Generally, it breaks AIM-2.**
+    *   **LS**: **Also breaks AIM-2.**
+    *   **SPD*:
+        *   **TSPD**: **Sprinting Human** (Running) to **Baseline** (Flying) to **∞** (Using **Instant Transmission**)
+        *   **RT**: **Ambiguous**. Baseline is **Trained Human.** but the **Ultra Instinct** state makes it instantaneous, even though scientific instinct still needs stimulus and is likely above Peak Human, the anime says it's instantaneous which just does work. following Guideline 1 and AIM-1, we'll mark it is **Instantaneous.**
+        *   **CSPD**: **≠**. due to inconsistencies, this is skipped.
+*   **Hax & Abilities**: 
+    *   **Type**: **Mono-Dimensional**.
+    *   **Abilities**: Energy Projection, Teleportation (Instant Transmission), Existence Erasure (Hakai: Imperfect), Energy dependent Autonomous Reaction (MUI).
+*   **Resistances (RI)**: 
+    *   **Immunity Hax Level 0, 1 and 3**: minor resistance to Kinetic and Energy manipulation. canon shows user can still can be affected. do resistance to conceptual attacks but can counter attack with the character's own conceptual attack: Hakai.
+*   **Mental & Psychological State (MPS)**: 
+    *   **Psy-AP**: Moderate (Intimidation via transformations).
+    *   **Psy-R**: High. Battle-hardened genius, almost boundless will, but susceptible to letting guard down.
+
+**2. Rimuru Tempest (Deity / Void God Azathoth)**
+*   **SoI**: **Tier 12: Complex Multiversal**
+    *   *Justification*: At the End of Series (EoS), Rimuru accumulates enough energy (Turn Null) to recreate the world (Multiverse) tens of thousands of times over. He exists in the "End of Time and Space," transcending the standard flow of his framework.
+*   **Physicality**:
+    *   **SS/LS**: **Incalculable**. Physical strength is irrelevant due to non-corporeal nature, but energy output is obtuse (More than an Multiverse, Less than an Omniverse.)
+    *   **Speed (All)**: **∞/acausal/≠**. Can move freely through time and space; can arrive at a destination before he leaves.
+*   **Hax & Abilities**:
+    *   **Type**: **Poly-Dimensional (Hax)**. Can access and manipulate dimensional planes outside standard reality.
+    *   **Abilities**: Concept Consumption (Beelzebuth), Reality Warping, Time Stop, Soul Consumption, True Dragon existence (Non-corporeal).
+*   **Resistances (RI)**:
+    *   **Immunity Hax Level 1, 2**: Immune to Space-Time manipulation and Physical/Energy attacks.
+*   **Mental & Psychological State (MPS)**:
+    *   **Psy-AP**: Absolute (Demon Lord Haki / True Dragon Aura / Existence as an Eldritch God).
+    *   **Psy-R**: Absolute (Assisted by "Ciel" (Manas), a super-intelligence that handles all mental processing and emotional regulation, making him immune to psychological warfare)
+
+#### **System Verdict**
+
+
+**Deciding Factor: Speed Interaction**:
+    *   **Blitzsieg Activation**.
+    *   **Analysis**: Goku requires linear time to travel (`Speed = Distance / Time`) and his speed is a proactive ability. Rimuru is an acausal existence, and his proactives activate faster than Goku's because of the RT Gap.
+
+**Winner: Rimuru Tempest**
+*Reasoning: While Goku is a martial arts prodigy, he is a 3-Dimensional being fighting a higher-dimensional entity. Under UPSGC V 1.8.9.3, Goku lacks the **Immunity Hax** to survive conceptual erasure and lacks the **Tier** to damage a Complex Multiversal structure.*
+
+
+---
+
+### **Guidelines for Productive Debating**
+
+1.  **Prioritize On-Canon Feats**: Debates should be grounded in evidence from the source material (novels, manga, anime, comics, etc.). Guidebooks can provide good context, but primary canon feats are the strongest evidence. unless you're ranking fanfiction or OC characters.
+2.  **Acknowledge Context**: Consider the circumstances of a feat. Was it a high-effort attack or a casual one? Was the character weakened or amplified? Acknowledging context leads to more accurate scaling.
+3.  **Differentiate Character Versions (D.C.V.)**: Be specific about which version of a character is being debated (e.g., "End of Z Goku" vs. "Super Saiyan Rose Goku" vs. "Ultra Instinct Goku" vs. "[Fanfiction]'s Goku" vs. "End of DBS Goku"). Characters have vastly different power levels throughout their history. if someone is bringing vague, it's recommended to invoke D.C.V.
+4.  **Maintain Respectful Discourse (M.R.D.)**: The goal is a fun, analytical exchange. Avoid personal attacks, bad-faith arguments (e.g., intentionally misinterpreting evidence and/or calculations), and circular reasoning. If a debate becomes unproductive, it is better to disengage by invoking M.R.D.
+5. **Recognize the core issue in power scaling**: One can perceive a feat differently, so provide a detailed explanation for what you think the interpretation may be, then listen to theirs, review if it's canon consistent, and both decide what they think what should be more correct. If both draw into a stalemate, insert a unbiased (Hasn't seen the show before or doesn't have opinions) third party (who also is not in anyone's side and will stay objective) to decide what option is more standard and also ask them to provide their own reasoning.
+6. **Verse Equalization (V.E.)**: Unless explicitly stated otherwise, supernatural energies (e, g, Mana, Qi/Ki, Chakra, Nen, Magic, Force, Will, Quirk, Haki, Spiral Energy, Aura, Skill) are treated as interacting on the same mechanistic level to allow for functional debate.
+7. **Coughing Baby Vs. Hydrogen Bomb Scenario Debates (Bad Arguments/B.A.)**: if an argument is—at a glance—intentionally unfair. It's recommended to ignore it immediately, or, if it's not for practical purposes and/or a brainstorm/joke, it's recommended to engage with more absurd ideas to keep the fun running.
+8. **Core Goal of this system (R.R.D.H.S.)**: **R**esearch (with everyone), **R**espect (others' reasoning), **D**ebate (with each other), **H**elp (maintain respectful discourse), and **S**olve (the core argument.)
+9. **Reminder**: Even if it seems like it, the core of the system is not a **VS Debating system** but rather a **classification and ranking system.**
+
+
+---
+
+### **The "Grand Unified" UPSGC Equation**
+
+To determine the **Effective Power Level ($P_{eff}$)** of a character for a VS Debate:
+
+$$P_{eff} = \left( \sum_{i=0}^{n} Hax_i \right) \times \left( \frac{DCC \times CSPD}{1 - RI} \right)$$
+
+*   **$Hax$**: Dimensionality multipliers
+*   **$DCC$**: Raw energy output in Joules.
+*   **$CSPD$**: Combat speed.
+*   **$1 - RI$**: The "Vulnerability factor." As Immunity Hax ($RI$) approaches 1.0 (Omni-Immunity), the denominator approaches 0, making the character's effective power **Infinite**.
+
+----
+
+## **Closure**
+Unified Power-Scaling System for General Use (UPSGC) is a product of S.O.L.E. Information Agency Global.
+UPSGC's primary goal is to provide a standardized metric for evaluating fictional characters. 
