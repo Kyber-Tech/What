@@ -1,0 +1,89 @@
+---
+
+
+# The Advanced Cognitive Metric
+
+###### Issuer: Tonmoy KS
+###### Instructions:
+Take your time. Some of these have definitive answers, while others are designed to see how you think. I will provide an analysis of your reasoning style at the end. low formatting is used.
+
+
+---
+
+
+#### Puzzle 1:
+
+
+the next two elements in this sequence. The key is cryptographic, not purely mathematical.
+
+
+A, C, E, G, J, L, N, P, ... , ...
+
+
+What are the next two letters?
+
+
+---
+
+
+#### Puzzle 2:
+
+
+You have a balance scale and three weights. You are told that one of the weights is a different mass than the other two, but you are not told if it is heavier or lighter.
+
+
+Using the balance scale only once, how can you guarantee you will identify the odd weight and determine whether it is heavier or lighter?
+
+
+---
+
+
+#### Puzzle 3:
+
+
+Consider the following sequence of words:
+
+
+TWO, FOUR, SIX, EIGHT, TEN, TWELVE
+
+
+What is the logical "Twelfth" element of this sequence? It is not the number "TWENTY-FOUR" or "FOURTEEN"
+
+
+---
+
+
+#### Puzzle 4:
+
+
+Decode the pattern and find the missing value (?). The pattern is consistent across both rows and columns.
+
+
+ A B C
+1 2 5 10
+2 3 10 29
+3 4 17 ?
+
+
+---
+
+
+#### Puzzle 5:
+
+
+This statement is a puzzle in itself. How many times does the letter 'F' appear in the following sentence?
+
+
+"Finished files are the result of years of scientific study combined with the experience of many years."
+
+
+Count carefully, and state your reasoning.
+
+---
+
+#### Puzzle 6:
+
+Find all functions  f : \mathbb{R} \to \mathbb{R}  such that
+f(xf(y) + f(x)) = 2f(x) + xy for all real numbers x and y
+
+---
