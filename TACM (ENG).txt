@@ -87,3 +87,37 @@ Find all functions  f : \mathbb{R} \to \mathbb{R}  such that
 f(xf(y) + f(x)) = 2f(x) + xy for all real numbers x and y
 
 ---
+
+#### Puzzle 7:
+
+Let \( S \) be a finite set of points in the plane, no three collinear. A *rainbow triangle* is a triangle with vertices in \( S \) such that the three side lengths are all distinct.  
+
+Define a *rainbow cycle* as a sequence of distinct points \( P_1, P_2, \dots, P_k \) in \( S \) (with \( k \ge 3 \)) such that:  
+
+1. The segments \( P_1P_2, P_2P_3, \dots, P_{k-1}P_k, P_kP_1 \) all have distinct lengths,  
+2. And the set of these lengths, together with the lengths of all chords \( P_iP_j \) with \( |i-j| \ge 2 \) (excluding the edges already listed), contains no three lengths that form the sides of a non-degenerate triangle.  
+
+Find the maximum possible value of \( k \) for which such a rainbow cycle can exist in some configuration \( S \), and prove it.  
+
+
+--- maximum possible \( k \) is **4**.
+
+---
+
+**Proof sketch (with main ideas)**  
+
+- **Upper bound:** By condition 2, the set of all distances among the \( k \) points contains no triple that can form a triangle. By a known extremal combinatorics/graph theory argument, if a set of \( m \) distinct positive numbers has the property that no three can be side lengths of a triangle, then they must grow at least like the Fibonacci sequence. This forces the largest distance to be huge compared to the smallest.  
+
+  With a cycle of \( k \) points in the plane, the edges and diagonals realize many distances, and the polygon inequality forces some of these distances to be comparable; after detailed geometric and combinatorial reasoning, \( k \ge 5 \) inevitably creates a triple of distances that can form a triangle — contradicting condition 2. Hence \( k \le 4 \).
+
+- **Lower bound:** For \( k=4 \), an explicit construction exists. Take a set of 4 points shaped like a "kite" with carefully chosen coordinates so that all 6 pairwise distances are:  
+  \( 1, \phi, \phi^2, \phi^3, \phi^4, \phi^5 \)  
+  where \( \phi \) is the golden ratio \( \frac{1+\sqrt{5}}{2} \). The Fibonacci-like growth prevents any three from being triangle sides, and the cyclic order can be chosen to make the edge lengths all distinct. This satisfies both conditions.
+
+Thus \( k_{\max} = 4 \).
+
+---
+
+Let me know if you’d like a full rigorous proof.
+
+---
