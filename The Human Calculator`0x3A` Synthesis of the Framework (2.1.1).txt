@@ -1,8 +1,8 @@
 # **The Human Calculator: Synthesis of the Framework**
 ## *A Comprehensive Course to Mental Mathematics, Psychological Resilience, Study Strategy, & Exam Mastery*
 ###### _Author: Tonmoy KS_
-###### _Date of Publishment: Sat, Apr, 26_
-###### _Version: 2.1.0_ 
+###### _Date of Publishment: Sat, Apr, 2026_
+###### _Version: 2.1.1_ 
 
 ---
 
@@ -277,6 +277,7 @@ You do not know math because you watched a video or read a textbook. You only kn
 
 ### **Chapter 7.1: Speed Multiplication Drills**
 *Goal: Solve each mentally in under 5 seconds using Unit 1 strategies.*
+
 1. $81 \times 11 =$ \_\_\_\_\_
 2. $563 \times 11 =$ \_\_\_\_\_
 3. $85 \times 85 =$ \_\_\_\_\_
@@ -287,6 +288,7 @@ You do not know math because you watched a video or read a textbook. You only kn
 
 ### **Chapter 7.2: Arithmetic & Intuitive Bounding Sprints**
 *Goal: Combine Vedic speed with your intuitive leaps.*
+
 8.  **Vedic Addition:** $648 + 397 =$ \_\_\_\_\_ *(Hint: Treat 397 as 400 - 3)*
 9.  **Vedic Subtraction:** $812 - 519 =$ \_\_\_\_\_
 10. **Vertical/Crosswise:** $32 \times 24 =$ \_\_\_\_\_
@@ -295,14 +297,7 @@ You do not know math because you watched a video or read a textbook. You only kn
 
 ### **Chapter 7.3: Conceptual & Strategy Prompts**
 *Goal: Test your declarative knowledge and exam readiness.*
-13. Explain to an imaginary student, using Justin Sung’s Conceptual Rule, how the "Same Bounding Hack:** You need the prime factorization/square root of **961**. 
-    *   *Step 1:* Is it even? No. 
-    *   *Step 2:* Make a square leap. What is $30^2$? (900). 
-    *   *Step 3:* The number is slightly higher than 30 and ends in 1. What number multiplied by itself ends in 1? 
-    *   *Answer:* \_\_\_\_\_
 
-### **Chapter 7.3: Conceptual & Strategy Prompts**
-*Goal: Test your declarative knowledge and exam readiness.*
 13. Explain to an imaginary student, using Justin Sung’s Conceptual Rule, how the "Same First Digit, Sum of Ten" multiplication trick works.
 14. You have an exam in 45 minutes and your hands feel stiff. What exact 30-second drill should you perform to increase your writing speed?
 15. Close this book. Write down the 4 steps of the "Rough Page" Strategy and the "Keyword Formatting" rule from memory.
