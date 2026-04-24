@@ -1,8 +1,8 @@
 # **The Human Calculator: Synthesis of the Framework**
 ## *A Comprehensive Course to Mental Mathematics, Psychological Resilience, Study Strategy, & Exam Mastery*
 ###### _Author: Tonmoy KS_
-###### _Date of Publishment: Sat, Apr, 2026_
-###### _Version: 2.1.1_ 
+###### _Date of Publishment: 0.00308489634_
+###### _Version: 3.0.0_
 
 ---
 
@@ -47,8 +47,9 @@
 *   **Branch 4: Exercise Questions**
     *   **Unit 7: The Master Training Ground**
         *   Chapter 7.1: Speed Multiplication Drills
-        *   Chapter 7.2: Arithmetic & Intuitive Bounding Sprints
+        *   Chapter 7.2: Arithmetic Sprints
         *   Chapter 7.3: Conceptual & Strategy Prompts
+        *   Chapter 7.4: Master Questions (Extra Hard)
         *   Answer Key & Solutions
 
 ---
@@ -302,6 +303,9 @@ You do not know math because you watched a video or read a textbook. You only kn
 14. You have an exam in 45 minutes and your hands feel stiff. What exact 30-second drill should you perform to increase your writing speed?
 15. Close this book. Write down the 4 steps of the "Rough Page" Strategy and the "Keyword Formatting" rule from memory.
 
+### **Chapter 7.4: Master Questions**
+*For 16, 17, 18, 19, 20, And 21. see `TACM (ENG).txt`*
+
 ---
 
 ### **Answer Key & Solutions**
@@ -327,5 +331,10 @@ You do not know math because you watched a video or read a textbook. You only kn
 14. Perform the Hand Warm-up: Draw fast vertical lines, zig-zags, and loops on a rough sheet of paper.
 15. *(Subjective)* Verify against Chapter 3.1 and 3.3.
 
+**Chapter 7.4 Solutions**
+For Solution to 16, 17, 18, 19, 20, And 21. see `Ideal Answer Sheet to TACM (ENG).txt`
+
 ---
-**FINAL NOTE:** *Knowledge without action is just trivia. Practice daily with your friends, your family, and every numerical problem you encounter in the real world. You are no longer a man—you are a Human Calculator.*
+
+**NOTE:** *Knowledge without action is just trivia. Practice daily with your friends, your family, and every numerical problem you encounter in the real world. You are no longer just a student—you are a Human Calculator.*
+**Motto:** *Math is not a game of memorization. you only memorize techniques and rules. you don't memorize answers. a wise man omce said "চুরি বিদ্দা মোহা বিদ্দা জোড়ি ধোরা না পাও"*
