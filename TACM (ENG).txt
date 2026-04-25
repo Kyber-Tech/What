@@ -4,8 +4,7 @@
 # The Advanced Cognitive Metric
 
 ###### Issuer: Tonmoy KS
-###### Instructions:
-Take your time. Some of these have definitive answers, while others are designed to see how you think. I will provide an analysis of your reasoning style at the end. low formatting is used.
+###### Instructions: You will get 2 Minutes / 120 Seconds for each puzzle.
 
 
 ---
@@ -99,25 +98,53 @@ Define a *rainbow cycle* as a sequence of distinct points \( P_1, P_2, \dots, P_
 
 Find the maximum possible value of \( k \) for which such a rainbow cycle can exist in some configuration \( S \), and prove it.  
 
+---
 
---- maximum possible \( k \) is **4**.
+
+#### Puzzle 8:
+
+There are 4 Triangles.
+
+Let the top be T, the left side be L, the right side be R, and the middle be M
+
+Triangle 1:
+    - T = 7
+    - L = 12
+    - R = 1
+    - M = 7
+Triangle 2:
+    - T = 69
+    - L = 12
+    - R = 8
+    - M = -68
+Triangle 3:
+    - T = 212
+    - L = 40
+    - R = 139
+    - M = 11120.5
+Triangle 4:
+    - T = 345463151815487
+    - L = 645846454484375
+    - R = 154845760064649
+    - M = X
+
+what is the value of X?
+
+11120.5
+Triangle 4:
+    - T = 34546315181548700375500
+    - L = 64584645448437500375500
+    - R = 15484576006464900375500
+    - M = X
+
+what is the value of X?
 
 ---
 
-**Proof sketch (with main ideas)**  
+#### Puzzle 9:
 
-- **Upper bound:** By condition 2, the set of all distances among the \( k \) points contains no triple that can form a triangle. By a known extremal combinatorics/graph theory argument, if a set of \( m \) distinct positive numbers has the property that no three can be side lengths of a triangle, then they must grow at least like the Fibonacci sequence. This forces the largest distance to be huge compared to the smallest.  
+Prove: 1+1=2, 1-1=0, 1÷2=0.5, 2×2=4, 3³=3×3=9, 1÷0=∞, and 0÷0=NaN.
 
-  With a cycle of \( k \) points in the plane, the edges and diagonals realize many distances, and the polygon inequality forces some of these distances to be comparable; after detailed geometric and combinatorial reasoning, \( k \ge 5 \) inevitably creates a triple of distances that can form a triangle — contradicting condition 2. Hence \( k \le 4 \).
+without reading any materials like Principia Mathmatica.
+except, you can but you have to quote every single word, sentence, paragraph and concept you will be saying.
 
-- **Lower bound:** For \( k=4 \), an explicit construction exists. Take a set of 4 points shaped like a "kite" with carefully chosen coordinates so that all 6 pairwise distances are:  
-  \( 1, \phi, \phi^2, \phi^3, \phi^4, \phi^5 \)  
-  where \( \phi \) is the golden ratio \( \frac{1+\sqrt{5}}{2} \). The Fibonacci-like growth prevents any three from being triangle sides, and the cyclic order can be chosen to make the edge lengths all distinct. This satisfies both conditions.
-
-Thus \( k_{\max} = 4 \).
-
----
-
-Let me know if you’d like a full rigorous proof.
-
----

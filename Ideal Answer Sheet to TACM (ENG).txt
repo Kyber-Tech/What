@@ -100,14 +100,14 @@ Reasoning:
 
 ---
 
-Puzzle 5: The Functional Equation
+Puzzle 6: The Functional Equation
 Answer: x + 1
 
 there's no other alternatives. proof of work is provided separately at the `notes` section at the end of the paper.
 
 ---
 
-Puzzle 6: The Rainbow
+Puzzle 7: The Rainbow
 Answer: The maximum possible \( k \) is 4.
 
 Here is a rigorous, self-contained proof.
@@ -289,3 +289,11 @@ Upper bound proved via the triangle-free distance set growth and planar polygon 
 Final answer: \(\boxed{4}\).
 
 ---
+
+Puzzle 8: The Triangle Test
+Answer: I am not paid enough to calculate X. but the formula is certainly `M = (T × R) + (((7 - T) ÷ 2) × (L + R)}`.
+
+---
+
+Puzzle 9: The Axioms
+Answer: Skipped for Now.
