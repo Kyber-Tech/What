@@ -1,0 +1,340 @@
+# **The Human Calculator: Synthesis of the Framework**
+## *A Comprehensive Course to Mental Mathematics, Psychological Resilience, Study Strategy, & Exam Mastery*
+###### _Author: Tonmoy KS_
+###### _Date of Publishment: 0.00308489634_
+###### _Version: 3.0.0_
+
+---
+
+### **Table of Contents**
+
+*   **Branch 1: Mathematical Techniques**
+    *   **Unit 1: Fundamentals of Speed Multiplication**
+        *   Chapter 1.1: The Magic of 11
+        *   Chapter 1.2: Squaring Numbers Ending in 5
+        *   Chapter 1.3: The "Same First Digit, Sum of Ten" Rule
+        *   Chapter 1.4 *(Bonus)*: Base Multiplication (Numbers Near 100)
+    *   **Unit 2: Advanced Vedic & Intuitive Arithmetic**
+        *   Chapter 2.1: Vedic Addition (The 7-Stage Mastery Plan)
+        *   Chapter 2.2: Vedic Subtraction (The Gap Adjustment Method)
+        *   Chapter 2.3: Vedic Multiplication (The Vertical & Crosswise Rule)
+        *   Chapter 2.4: Vedic Division (The Base Approximation Technique)
+        *   Chapter 2.5: The Intuitive Bounding Hack (LCM)*
+        *   Chapter 2.6 *(Bonus)*: The Digit Sum Method for Instant Verification
+*   **Branch 2: Psychological and Presentation Techniques**
+    *   **Unit 3: The Psychology of the Grader (Presentation Hacks)**
+        *   Chapter 3.1: The Keyword & Formatting Strategy
+        *   Chapter 3.2: Structuring Complex Answers (Tables & Sequences)
+        *   Chapter 3.3: Speed Writing & Clean Corrections
+        *   Chapter 3.4: Emergency Recall (The Funneling Method)
+    *   **Unit 4: The Psychology of the Student (Mindset Hacks)**
+        *   Chapter 4.1: The "Math God" Identity Switch
+        *   Chapter 4.2: Embracing the "Stuck" Phase
+        *   Chapter 4.3: The Erdős "Open Mind" Philosophy
+        *   Chapter 4.4 *(Bonus)*: Overcoming Math Anxiety & Imposter Syndrome
+*   **Branch 3: Studying Techniques and Instructions**
+    *   **Unit 5: The Cognitive Engine (Daily Study Blueprint)**
+        *   Chapter 5.1: The Anti-Overload Rule & Problem-Solving Pyramid
+        *   Chapter 5.2: Memory Glue (Active Recall & Spaced Repetition)
+        *   Chapter 5.3: Procrastination Killers & The Morning Power Habit
+        *   Chapter 5.4: Exam-Speed Mode Simulation
+    *   **Unit 6: Deep Learning & The Top 1% Strategy**
+        *   Chapter 6.1: The Philosophy of Understanding (Justin Sung’s Rule)
+        *   Chapter 6.2: The Problem-Solving Workflow & AI Tutor Hack
+        *   Chapter 6.3: The Math Ladder & Fundamentals Self-Diagnosis
+        *   Chapter 6.4: The 2% Rule & Contest Math Challenges
+        *   Chapter 6.5: The Professional's Routine (The Sorcerer's Strategy)
+*   **Branch 4: Exercise Questions**
+    *   **Unit 7: The Master Training Ground**
+        *   Chapter 7.1: Speed Multiplication Drills
+        *   Chapter 7.2: Arithmetic Sprints
+        *   Chapter 7.3: Conceptual & Strategy Prompts
+        *   Chapter 7.4: Master Questions (Extra Hard)
+        *   Answer Key & Solutions
+
+---
+
+# **Branch 1: Mathematical Techniques**
+*In an age of smartphones and AI, mental math is your hidden superpower. It improves cognitive function, sharpens focus, and allows you to calculate faster than a person can even open an app. Branch 1 focuses purely on upgrading your mechanical hardware.*
+
+## **Unit 1: Fundamentals of Speed Multiplication**
+
+### **Chapter 1.1: The Magic of 11**
+Multiplying by 11 is the perfect gateway to mental agility. The traditional method requires two rows of addition. The Vedic method requires a single visual glance.
+*   **Two-Digit Numbers:** To multiply any two-digit number by 11, simply separate the two digits and place their sum exactly in the middle.
+    *   *Example:* $43 \times 11$. Separate 4 and 3. Add $4+3=7$. Place 7 in the center. Result: **473**.
+*   **The "Carry Over" Rule:** What happens if the sum of the two digits exceeds 9? You simply carry the "1" over to the first digit.
+    *   *Example:* $68 \times 11$. Separate 6 and 8. Add $6+8=14$. Place the 4 in the middle, and carry the 1 to the 6. $(6+1) \dots 4 \dots 8$. Result: **748**.
+*   **Three-Digit Numbers:** Keep the outer digits in place, and create the middle digits by adding adjacent pairs from right to left.
+    *   *Example:* $352 \times 11$. The outer digits are 3 and 2. Middle digits: $(5+2=7)$ and $(3+5=8)$. Result: **3872**.
+
+### **Chapter 1.2: Squaring Numbers Ending in 5**
+Squaring a number like 75 or 95 manually takes time. This pattern solves it in two seconds.
+*   **The Condition:** The number must end in 5, and you are multiplying it by itself ($x^2$).
+*   **The Method:** Take the first digit (the tens place) and multiply it by the next consecutive number in the counting sequence ($n \times (n+1)$). Then, simply attach "25" to the end of your result.
+    *   *Example:* $75 \times 75$. The first digit is 7. The next number is 8. $(7 \times 8) = 56$. Append 25. Result: **5625**.
+    *   *Example:* $35 \times 35$. The first digit is 3. The next number is 4. $(3 \times 4) = 12$. Append 25. Result: **1225**.
+
+### **Chapter 1.3: The "Same First Digit, Sum of Ten" Rule**
+This is an advanced, highly satisfying variant of the squaring trick.
+*   **The Condition:** The first digits must be identical, and the last digits must sum perfectly to 10 (e.g., 44 and 46, because $4+6=10$).
+*   **The Method:** Apply the same logic as Chapter 1.2 for the front: Multiply the first digit by its successor. Then, multiply the two ending digits together and place the result at the end.
+    *   *Example:* $44 \times 46$. 
+        1. Front: Same digit is 4. Next is 5. $(4 \times 5) = 20$.
+        2. Back: Last digits are 4 and 6. $(4 \times 6) = 24$.
+        3. Combine: **2024**.
+    *   *Example:* $67 \times 63 \rightarrow (6 \times 7) = 42 \dots (7 \times 3) = 21$. Result: **4221**.
+
+### **Chapter 1.4 *(Bonus)*: Base Multiplication (Numbers Near 100)**
+How to instantly multiply numbers in the 90s without a calculator.
+*   **The Method:** Find how far each number is from the base of 100. Subtract the cross-gap from one number. Multiply the gaps together for the last two digits.
+    *   *Example:* $97 \times 96$
+    *   97 is **3** away from 100. 96 is **4** away from 100.
+    *   Cross subtract: $97 - 4 = 93$ (or $96 - 3 = 93$). This gives you the first half: **93**.
+    *   Multiply the gaps: $3 \times 4 = 12$. This gives you the second half: **12**.
+    *   Combine: **9312**.
+
+---
+
+## **Unit 2: Advanced Vedic & Intuitive Arithmetic**
+
+### **Chapter 2.1: Vedic Addition (The 7-Stage Mastery Plan)**
+Stop using your fingers. Stop carrying the "1" right-to-left. Vedic math teaches us Left-to-Right addition, which mirrors how our brain processes numerical magnitude.
+*   **Stage 1 (Single Digits):** Instant recall. ($5+6=11$). If you still count this, you must drill single digits until they are reflexive.
+*   **Stage 2 (Mental Jumps):** Recognize patterns. E.g., $47+7$. You know $7+7=14$, so you immediately know $47+7$ jumps to **54**.
+*   **Stage 3 (Base Multiples):** Mentally lock in tens. ($40+50=90$; $80+70=150$).
+*   **Stage 4 (Double Digit < 100):** Process left-to-right. $47+17 \rightarrow$ Add the 7 to 47 to get 54, then add the remaining 10 = **64**.
+*   **Stage 5 (Double Digit > 100):** $68+74 \rightarrow$ Add the tens $(60+70=130)$. Add the units $(8+4=12)$. Add them together: $130+12 =$ **142**.
+*   **Stage 6 (Compensation / The "Tidng-Tidng" Trick):** Use this when a number is close to a "clean" base (like 99, 199, 295).
+    *   *Example:* $176 + 199 \rightarrow$ Treat 199 as an even 200, but owe the math gods 1. $176 + 200 = 376$. Subtract the 1 = **375**.
+*   **Stage 7 (Break and Connect / Todu-Modu):** For massive numbers, break them down entirely by place value.
+    *   *Example:* $734 + 679 \rightarrow$ Hundreds: $(700+600=1300)$. Tens: $(30+70=100)$. Units: $(4+9=13)$. Connect them: $1300 + 100 + 13 =$ **1413**.
+
+### **Chapter 2.2: Vedic Subtraction (The Gap Adjustment Method)**
+"Borrowing" causes a high rate of mental error. Avoid it entirely by measuring the "gap."
+*   **The Method:** Subtract the base hundreds. Then, look at the remainder numbers and find their gap.
+    *   *Example:* $313 - 117$
+    *   Step 1: Subtract the bases: $300 - 100 = 200$.
+    *   Step 2: Look at the remainders: 13 and 17. The difference (gap) is 4. 
+    *   Step 3: Because you are subtracting a *larger* remainder (17) from a *smaller* one (13), you must subtract the gap from your base.
+    *   $200 - 4 =$ **196**.
+
+### **Chapter 2.3: Vedic Multiplication (The Vertical & Crosswise Rule)**
+Multiply any two-digit numbers instantly in three visual steps. Draw an imaginary grid in your mind.
+*   *Example:* $41 \times 23$
+    1.  **Left Vertical:** Multiply the first digits (the tens). $4 \times 2 = \mathbf{8}$.
+    2.  **Crosswise:** Multiply diagonally and add them. $(4 \times 3) + (1 \times 2) = 12 + 2 = \mathbf{14}$.
+    3.  **Right Vertical:** Multiply the last digits (the units). $1 \times 3 = \mathbf{3}$.
+    4.  **Assemble:** Start from the right. Keep the 3. Keep the 4 from the "14", and carry the 1 over to the 8. $(8+1) \dots 4 \dots 3 =$ **943**.
+
+### **Chapter 2.4: Vedic Division (The Base Approximation Technique)**
+Division is notoriously slow. Use approximation factors for lightning-fast estimation.
+*   *Example:* $889 \div 291$
+    1.  **Round to Bases:** Round both to the nearest clean number. $900 \div 300 = 3$. (This is your base answer).
+    2.  **Calculate the Adjustment:** You added 9 to 291 to reach 300. Multiply that 9 by your base answer (3). $9 \times 3 = 27$.
+    3.  **Refine the Numerator:** Add that adjustment to the original numerator. $889 + 27 = 916$.
+    4.  **Final Calculation:** Solve the new, easier fraction. $916 \div 300 \rightarrow 9.16 \div 3 \approx$ **3.05**.
+
+### **Chapter 2.5: The Intuitive Bounding Hack *(LCm)***
+*This brilliant technique completely bypasses the excruciating trial-and-error of prime factorization and LCM evaluation.*
+
+When finding the LCM or prime factorizing large, ugly numbers (using 529 as a example), standard education teaches you to divide linearly: try 2, then 3, then 4, then 5, then 6, then 7... This wastes massive amounts of time. Instead, use intuition to "trap" the answer instantly.
+*   **Phase 1 (The Odd/Even Filter):** Never waste time on some numbers that are impossible. If a number is odd or ends in one. You immediately bypass trying to divide by 2.
+*   **Phase 2 (The Square Notation):** Instead of writing ($n \times n$), write in squares ($n^2$) for every pair. It saves time.
+*   **Phase 3 (The Intuitive Jump):** Look at the number. You leap using squares you already know to find the boundaries. 
+    *   $14^2 = 196$ (Way too low). 
+    *   Jump high: $25^2 = 625$ (Too high, but close). 
+    *   You now know the exact answer is trapped between 14 and 25.
+*   **Phase 4 (Intuitive Tuning):** Let's go slightly lower than 25. Like, 5.
+    *   $20^2 = 400$ (Getting closer, but still low). 
+    *   Now, use your prefrontal cortex to predict what number could be there.
+    *   Try $23^2$. It is exactly **529**! 
+*   **The Result:** By making intuitive, bounding jumps, you saved yourself multiple steps of useless linear division. Make micro-guesses for smaller numbers (e.g., 41) and massive, sweeping leaps for 4-digit numbers. Your intuition will become deadly accurate the more you use it in practice, practice makes perfect.
+
+### **Chapter 2.6 *(Bonus)*: The Digit Sum Method for Instant Verification**
+How do you know if your mental math is correct during a test? Use "Casting out Nines."
+*   **The Method:** Add the digits of the numbers you are computing until they become a single digit. Perform the math operation on those single digits. If the result matches your final answer's digit sum, your calculation is flawless.
+    *   *Example Check:* Did we correctly calculate $44 \times 46 = 2024$?
+    *   Digit sum of 44: $4+4=8$. 
+    *   Digit sum of 46: $4+6=10 \rightarrow 1+0=1$.
+    *   Multiply the sums: $8 \times 1 = \mathbf{8}$.
+    *   Digit sum of your answer (2024): $2+0+2+4 = \mathbf{8}$. The match proves your math is correct!
+
+---
+
+# **Branch 2: Psychological and Presentation Techniques**
+*Being a Human Calculator is useless if the teacher can't read your brilliance or if you freeze under pressure. This branch bridges the gap between raw intelligence and elite exam performance.*
+
+## **Unit 3: The Psychology of the Grader (Presentation Hacks)**
+
+### **Chapter 3.1: The Keyword & Formatting Strategy**
+Teachers do not read every word of your 10-page exam; they scan for "triggers." You must hand them the marks on a silver platter.
+*   **The Underline Hack:** Always use a pencil to underline the most important technical terms in your sentences. This guides the tired examiner's eyes straight to your knowledge.
+*   **The Box Rule:** For math, physics, and chemistry, always draw a neat box around your final numerical result.
+*   **The Unit Rule:** A naked number is a wrong number. Never forget the units (m, kg, cm²). A boxed answer with units instantly signals a "Top 1% Student."
+
+### **Chapter 3.2: Structuring Complex Answers (Tables & Sequences)**
+*   **The T-Chart Rule:** Never write "Difference Between" questions in paragraphs. Always draw a table. It is visually cleaner, easier to grade, and forces your brain to avoid rambling.
+*   **The Sequence Rule:** Follow the chronological order of the test: 1, 2, 3... Jumping around frustrates the grader. If you don't know an answer, skip space or save it for the absolute end of the paper. Do not leave a chaotic mess in the middle.
+
+### **Chapter 3.3: Speed Writing & Clean Corrections**
+Calculate fast, write faster.
+*   **Hand Warm-ups:** 30 minutes before the exam, grab a rough sheet and draw fast vertical lines, zig-zags, and loops for 30 seconds. This syncs brain-to-hand motor coordination.
+*   **Air Writing:** Practice writing your name or common formulas in the air. This loosens wrist mobility and dramatically increases physical writing speed.
+*   **The "Rough Page" Strategy:** Long essay answers lead to messy crossing out. Label your last page **"ROUGH."** Jot down your main bullet points there first, organize them, then write the clean version on the main page.
+*   **The Single-Line Rule:** If you make a mistake, do not scribble it into a black void. Use a ruler and pencil to draw one single, clean horizontal line through the error. 
+
+### **Chapter 3.4: Emergency Recall (The Funneling Method)**
+When you inevitably go blank under pressure, do not panic. Funnel your way down into the memory:
+1.  **The Chapter:** What was the broad theme of the unit?
+2.  **The Topic:** What was the specific heading on the textbook page?
+3.  **The Paragraph Hack:** If you cannot remember the exact 4 bullet points required, write everything you *do* know about the topic in a large, well-structured paragraph. Graders often award partial marks for relevant context.
+
+---
+
+## **Unit 4: The Psychology of the Student (Mindset Hacks)**
+
+### **Chapter 4.1: The "Math God" Identity Switch**
+Identity shapes success. Winners do not say, "I'm bad at math." 
+*   **The Switch:** Change your internal dialogue. Say, "I am improving every day," and "Mistakes are proof of my brain leveling up."
+*   **Roleplay:** Start acting like a "Math Genius." Sit up straight, tackle problems with enthusiasm, and teach concepts to others. Eventually, the performance becomes your reality.
+
+### **Chapter 4.2: Embracing the "Stuck" Phase**
+Most students quit when they feel lost. Professionals realize that "feeling stuck" is the exact biological moment learning happens. The process of moving from "I have no idea what to write" to "I know the next step" is where your brain forms myelin. Do not run from the friction; sit in the discomfort. It means you are growing.
+
+### **Chapter 4.3: The Erdős "Open Mind" Philosophy**
+The legendary mathematician Paul Erdős used to start his day by declaring, **"My mind is open."** Approach every study session—whether it's fractions or calculus—with complete engagement and curiosity. Remove the dread before you open the book.
+
+### **Chapter 4.4 *(Bonus)*: Overcoming Math Anxiety & Imposter Syndrome**
+Anxiety and excitement are physiologically identical (elevated heart rate, butterflies in the stomach). 
+*   **Reframing:** Before a test, do not say "I am nervous." Say out loud, "I am excited to show what I know." 
+*   **Imposter Syndrome:** Everyone feels they are faking it. The top 1% just keep calculating anyway. Let the anxiety fuel your focus.
+
+---
+
+# **Branch 3: Studying Techniques and Instructions**
+*Math is a skill, not a subject. You do not "study" math; you train it like a muscle. This branch gives you the blueprint for daily mastery.*
+
+## **Unit 5: The Cognitive Engine (Daily Study Blueprint)**
+
+### **Chapter 5.1: The Anti-Overload Rule & Problem-Solving Pyramid**
+Cramming 5 chapters in a night destroys retention and causes burnout.
+*   **The 1-Topic Rule:** Tackle only one major concept per day.
+*   **The 105-Minute Training Session:**
+    1.  **Concept Clearing (30 min):** Watch lectures, read theory, take notes.
+    2.  **Basic Practice (45 min):** Solve high-volume, easy problems to build muscle memory.
+    3.  **Hard Examples (30 min):** Push your limits with complex, multi-step problems.
+*   **The Problem-Solving Pyramid:** Never jump straight to hard questions. Start at the top: *Examples $\rightarrow$ Easy (momentum) $\rightarrow$ Medium (stamina) $\rightarrow$ Hard (confidence).*
+
+### **Chapter 5.2: Memory Glue (Active Recall & Spaced Repetition)**
+*   **Active Recall:** Do not just re-read your notes. Close the book and try to write the formula or solve the problem entirely from memory. The mental struggle creates the "glue" for long-term retention.
+*   **Spaced Repetition:** Revisit the topic after **1 day, 3 days, and 7 days.** This intercepts the psychological "Forgetting Curve" and locks the data in permanently.
+
+### **Chapter 5.3: Procrastination Killers & The Morning Power Habit**
+*   **The 10-Minute Momentum Hack:** When you want to quit, set a timer for 10 minutes. Tell yourself, "I'll just do 10 minutes." Because action breeds momentum, you will likely keep going long after the timer rings.
+*   **The Math Power Hour:** A compressed study routine: 20 mins reviewing formulas $\rightarrow$ 30 mins sprint solving $\rightarrow$ 10 mins reviewing mistakes.
+
+### **Chapter 5.4: Exam-Speed Mode Simulation**
+To avoid freezing in real exams, you must train under pressure.
+*   **Mock Papers:** Solve full mock papers once a week in a quiet room with no phone. 
+*   **Track Both Metrics:** Track not only your *accuracy* (score) but also your *time taken*. The goal is to simulate exam pressure so perfectly that the real exam feels easy.
+
+---
+
+## **Unit 6: Deep Learning & The Top 1% Strategy**
+
+### **Chapter 6.1: The Philosophy of Understanding (Justin Sung’s Rule)**
+*Based on the cognitive learning research of Justin Sung.*
+Math has a massive **declarative** component (the *why*), but schools only teach the **procedural** component (the *how*). 
+*   **The Rule:** Before you pick up a pen to use an equation, you must be able to **explain in words** what you are learning and *why* you are doing it. If you can explain the concept conceptually, you can solve complex problems before you even touch the numbers.
+
+### **Chapter 6.2: The Problem-Solving Workflow & AI Tutor Hack**
+When faced with a brutal, confusing problem:
+1.  **Inspect & Assess:** What is the question asking? What is the unknown variable?
+2.  **Focus on Strategy:** Think of the method, not just the final number.
+3.  **The AI Hack:** If you are hopelessly stuck, do not ask an AI for the final answer. Prompt it: *"Explain how to solve this step-by-step."* Once you understand the workflow, prompt: *"Give me 3 similar problems for practice so I can master this."*
+
+### **Chapter 6.3: The Math Ladder & Fundamentals Self-Diagnosis**
+Math is a strict hierarchy: *Pre-Algebra $\rightarrow$ Algebra I $\rightarrow$ Geometry $\rightarrow$ Algebra II $\rightarrow$ Pre-Calc $\rightarrow$ Calculus.*
+*   If you are struggling in Calculus, you likely have a gap in Algebra II. 
+*   **Self-Diagnosis:** Use free resources like Khan Academy to take diagnostic tests. Spend 20 minutes a day fixing fundamental gaps rather than banging your head against advanced topics.
+
+### **Chapter 6.4: The 2% Rule & Contest Math Challenges**
+How to go from "average" to a "Math God."
+*   **The 2% Sweet Spot:** Human beings learn best when challenged *just enough*. Always study material that is exactly 2% more difficult than your current comfort zone.
+*   **Contest Math:** Attempt American Mathematics Competitions (AMC) or Olympiad practice papers. The extreme mental challenge stretches your neural pathways, making standard school math feel incredibly simple by comparison.
+
+### **Chapter 6.5: The Professional's Routine (The Sorcerer's Strategy)**
+*Strategy contributed by The Math Sorcerer.* 
+You do not know math because you watched a video or read a textbook. You only know math when you sit down and **do the math.** 
+*   **The Morning Power Habit:** Wake up one hour earlier than normal. Drink some water, open your book, and solve just *one* math problem. Success is decided before the rest of the world wakes up.
+
+---
+
+# **Branch 4: Exercise Questions**
+*Close the theory. Open your mind. Pick up your pen. Start the timer.*
+
+## **Unit 7: The Master Training Ground**
+
+### **Chapter 7.1: Speed Multiplication Drills**
+*Goal: Solve each mentally in under 5 seconds using Unit 1 strategies.*
+
+1. $81 \times 11 =$ \_\_\_\_\_
+2. $563 \times 11 =$ \_\_\_\_\_
+3. $85 \times 85 =$ \_\_\_\_\_
+4. $45 \times 45 =$ \_\_\_\_\_
+5. $72 \times 78 =$ \_\_\_\_\_ 
+6. $93 \times 97 =$ \_\_\_\_\_ 
+7. $91 \times 98 =$ \_\_\_\_\_ 
+
+### **Chapter 7.2: Arithmetic & Intuitive Bounding Sprints**
+*Goal: Combine Vedic speed with your intuitive leaps.*
+
+8.  **Vedic Addition:** $648 + 397 =$ \_\_\_\_\_ *(Hint: Treat 397 as 400 - 3)*
+9.  **Vedic Subtraction:** $812 - 519 =$ \_\_\_\_\_
+10. **Vertical/Crosswise:** $32 \times 24 =$ \_\_\_\_\_
+11. **Base Division:** $119 \div 39 =$ \_\_\_\_\_ *(Estimate to two decimal places)*
+12. **The Intuitive Bounding Hack:** You need the prime factorization/square root of **961**. 
+
+### **Chapter 7.3: Conceptual & Strategy Prompts**
+*Goal: Test your declarative knowledge and exam readiness.*
+
+13. Explain to an imaginary student, using Justin Sung’s Conceptual Rule, how the "Same First Digit, Sum of Ten" multiplication trick works.
+14. You have an exam in 45 minutes and your hands feel stiff. What exact 30-second drill should you perform to increase your writing speed?
+15. Close this book. Write down the 4 steps of the "Rough Page" Strategy and the "Keyword Formatting" rule from memory.
+
+### **Chapter 7.4: Master Questions**
+*For 16, 17, 18, 19, 20, 21 And 22. see `TACM (ENG).txt`*
+
+---
+
+### **Answer Key & Solutions**
+
+**Chapter 7.1 Solutions:**
+1. **891** *(Split 8 and 1, add to get 9 in the middle)*
+2. **6193** *(Keep 3 and 5. Add 6+3=9, 5+6=11. Carry the 1 to 5 to make it 6).*
+3. **7225** *(8 x 9 = 72, append 25)*
+4. **2025** *(4 x 5 = 20, append 25)*
+5. **5616** *(Same first digit (7x8=56), sum of 10 (2x8=16))*
+6. **9021** *(93 is 7 away from 100. 97 is 3 away. 93-3=90. 7x3=21)*
+7. **8918** *(91 is 9 away, 98 is 2 away. 91-2=89. 9x2=18)*
+
+**Chapter 7.2 Solutions:**
+8. **1045** *(648 + 400 = 1048. Subtract 3).*
+9. **293** *(Bases: 800 - 500 = 300. Gap between 12 and 19 is 7. 300 - 7 = 293).*
+10. **768** *(Left: 3x2=6. Cross: (3x4)+(2x2) = 16. Right: 2x4=8. Carry the 1 from 16 to the 6 to get 768).*
+11. **~3.05** *(Round to $120 \div 40 = 3$. You added 1 to 39. $1 \times 3 = 3$. Add 3 to numerator: $119 + 3 = 122$. $122 \div 40 = 3.05$.)*
+12. **31** 
+
+**Chapter 7.3 Solutions:**
+13. *(Subjective)* The student should explain that by finding an easy structural pattern (like tens matching and units adding to a perfect 10), we can bypass long arithmetic and jump straight to the mathematical absolute.
+14. Perform the Hand Warm-up: Draw fast vertical lines, zig-zags, and loops on a rough sheet of paper.
+15. *(Subjective)* Verify against Chapter 3.1 and 3.3.
+
+**Chapter 7.4 Solutions**
+For Solution to 16, 17, 18, 19, 20, 21 And 22. see `Ideal Answer Sheet to TACM (ENG).txt`
+
+---
+
+**NOTE:** *Knowledge without action is just trivia. Practice daily with your friends, your family, and every numerical problem you encounter in the real world. You are no longer just a student—you are a Human Calculator.*
+**Motto:** *Math is not a game of memorization. you only memorize techniques and rules. you don't memorize answers. a wise man omce said "চুরি বিদ্দা মোহা বিদ্দা জোড়ি ধোরা না পাও"*
