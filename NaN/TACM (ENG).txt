@@ -1,0 +1,150 @@
+---
+
+
+# The Advanced Cognitive Metric
+
+###### Issuer: Tonmoy KS
+###### Instructions: You will get 2 Minutes / 120 Seconds for each puzzle.
+
+
+---
+
+
+#### Puzzle 1:
+
+
+the next two elements in this sequence. The key is cryptographic, not purely mathematical.
+
+
+A, C, E, G, J, L, N, P, ... , ...
+
+
+What are the next two letters?
+
+
+---
+
+
+#### Puzzle 2:
+
+
+You have a balance scale and three weights. You are told that one of the weights is a different mass than the other two, but you are not told if it is heavier or lighter.
+
+
+Using the balance scale only once, how can you guarantee you will identify the odd weight and determine whether it is heavier or lighter?
+
+
+---
+
+
+#### Puzzle 3:
+
+
+Consider the following sequence of words:
+
+
+TWO, FOUR, SIX, EIGHT, TEN, TWELVE
+
+
+What is the logical "Twelfth" element of this sequence? It is not the number "TWENTY-FOUR" or "FOURTEEN"
+
+
+---
+
+
+#### Puzzle 4:
+
+
+Decode the pattern and find the missing value (?). The pattern is consistent across both rows and columns.
+
+
+ A B C
+1 2 5 10
+2 3 10 29
+3 4 17 ?
+
+
+---
+
+
+#### Puzzle 5:
+
+
+This statement is a puzzle in itself. How many times does the letter 'F' appear in the following sentence?
+
+
+"Finished files are the result of years of scientific study combined with the experience of many years."
+
+
+Count carefully, and state your reasoning.
+
+---
+
+#### Puzzle 6:
+
+Find all functions  f : \mathbb{R} \to \mathbb{R}  such that
+f(xf(y) + f(x)) = 2f(x) + xy for all real numbers x and y
+
+---
+
+#### Puzzle 7:
+
+Let \( S \) be a finite set of points in the plane, no three collinear. A *rainbow triangle* is a triangle with vertices in \( S \) such that the three side lengths are all distinct.  
+
+Define a *rainbow cycle* as a sequence of distinct points \( P_1, P_2, \dots, P_k \) in \( S \) (with \( k \ge 3 \)) such that:  
+
+1. The segments \( P_1P_2, P_2P_3, \dots, P_{k-1}P_k, P_kP_1 \) all have distinct lengths,  
+2. And the set of these lengths, together with the lengths of all chords \( P_iP_j \) with \( |i-j| \ge 2 \) (excluding the edges already listed), contains no three lengths that form the sides of a non-degenerate triangle.  
+
+Find the maximum possible value of \( k \) for which such a rainbow cycle can exist in some configuration \( S \), and prove it.  
+
+---
+
+
+#### Puzzle 8:
+
+There are 4 Triangles.
+
+Let the top be T, the left side be L, the right side be R, and the middle be M
+
+Triangle 1:
+    - T = 7
+    - L = 12
+    - R = 1
+    - M = 7
+Triangle 2:
+    - T = 69
+    - L = 12
+    - R = 8
+    - M = -68
+Triangle 3:
+    - T = 212
+    - L = 40
+    - R = 139
+    - M = 11120.5
+Triangle 4:
+    - T = 345463151815487
+    - L = 645846454484375
+    - R = 154845760064649
+    - M = X
+
+what is the value of X?
+
+11120.5
+Triangle 4:
+    - T = 34546315181548700375500 ↑^{2^(2^(2 × 2048))} 64584645448437500375500
+    - L = 64584645448437500375500 ↑^{2^(2^(2 × 2048))} 34546315181548700375500
+    - R = 15484576006464900375500 ↑^{2^(2^(2 × 2048))} 64584645448437500375500
+    - M = X
+
+what is the value of X?
+
+---
+
+#### Puzzle 9:
+
+Prove: 1+1=2, 1-1=0, 1÷2=0.5, 2×2=4, 3³=3×3=9, 1÷0=∞, and 0÷0=NaN.
+
+without reading any materials like Principia Mathmatica.
+except, you can but you have to quote every single word, sentence, paragraph and concept you will be saying.
+
