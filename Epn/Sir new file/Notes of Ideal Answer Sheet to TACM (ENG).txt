@@ -1,0 +1,1170 @@
+---
+
+## Puzzle 6: Functional Equation
+
+**Problem:** Find all functions \( f : \mathbb{R} \to \mathbb{R} \) such that
+\[
+f(xf(y) + f(x)) = 2f(x) + xy \tag{1}
+\]
+for all real numbers \( x, y \).
+
+---
+
+## Part 1: Verification of the Claimed Solution
+
+Before proving uniqueness, let's verify that \( f(x) = x + 1 \) works.
+
+**LHS:** 
+\[
+f(xf(y) + f(x)) = f(x(y+1) + (x+1)) = f(xy + x + x + 1) = f(xy + 2x + 1)
+\]
+\[
+= (xy + 2x + 1) + 1 = xy + 2x + 2
+\]
+
+**RHS:**
+\[
+2f(x) + xy = 2(x+1) + xy = 2x + 2 + xy
+\]
+
+LHS = RHS = \( xy + 2x + 2 \) for all real \( x, y \). ✅
+
+So \( f(x) = x + 1 \) is definitely a solution.
+
+Now: is it the *only* one? Let's prove it.
+
+---
+
+## Part 2: Proving \( f(x) = x + 1 \) is the Unique Solution
+
+---
+
+### Step 1: Find \( f(0) \)
+
+Set \( x = 0 \) in (1):
+\[
+f(0 \cdot f(y) + f(0)) = 2f(0) + 0 \cdot y
+\]
+\[
+f(f(0)) = 2f(0) \tag{2}
+\]
+
+This tells us something about \( f(0) \), but not its exact value yet. Hold onto this.
+
+---
+
+### Step 2: Prove \( f \) is injective (one-to-one)
+
+Suppose \( f(a) = f(b) \) for some real \( a, b \).
+
+Set \( x = 1 \) in the original equation:
+\[
+f(1 \cdot f(y) + f(1)) = 2f(1) + 1 \cdot y
+\]
+\[
+f(f(y) + f(1)) = 2f(1) + y \tag{3}
+\]
+
+Now, in (3), replace \( y \) with \( a \) and then with \( b \):
+\[
+f(f(a) + f(1)) = 2f(1) + a
+\]
+\[
+f(f(b) + f(1)) = 2f(1) + b
+\]
+
+Since \( f(a) = f(b) \), the left-hand sides are identical. Therefore,
+\[
+2f(1) + a = 2f(1) + b \implies a = b
+\]
+
+Thus, \( f \) is **injective**. 
+
+---
+
+### Step 3: Prove \( f \) is surjective (onto)
+
+In (1), set \( x = 1 \):
+\[
+f(f(y) + f(1)) = 2f(1) + y \tag{4}
+\]
+
+Now let \( y \) run over all real numbers. As \( y \) varies, the RHS takes *every real value* (since \( 2f(1) + y \) is a linear function of \( y \) with slope 1 — a bijection from \( \mathbb{R} \) to \( \mathbb{R} \)).
+
+Thus, the function \( g(y) = f(f(y) + f(1)) \) is surjective. Since \( f \circ h \) being surjective implies \( f \) is surjective, we conclude \( f \) is **surjective**.
+
+So \( f \) is **bijective**.
+
+---
+
+### Step 4: Find \( f(0) \) precisely
+
+Since \( f \) is surjective, there exists some real \( t \) such that \( f(t) = 0 \).
+
+Set \( y = t \) in the original equation (1):
+\[
+f(x \cdot f(t) + f(x)) = 2f(x) + x t
+\]
+Since \( f(t) = 0 \):
+\[
+f(0 + f(x)) = 2f(x) + xt
+\]
+\[
+f(f(x)) = 2f(x) + xt \tag{5}
+\]
+
+Now set \( x = t \) in (5):
+\[
+f(f(t)) = 2f(t) + t \cdot t
+\]
+Since \( f(t) = 0 \):
+\[
+f(0) = 0 + t^2 = t^2 \tag{6}
+\]
+
+From (2), we have \( f(f(0)) = 2f(0) \). Substituting \( f(0) = t^2 \):
+\[
+f(t^2) = 2t^2 \tag{7}
+\]
+
+---
+
+### Step 5: A clever substitution to link everything
+
+In the original equation (1), swap \( x \) and \( y \):
+\[
+f(y f(x) + f(y)) = 2f(y) + yx \tag{8}
+\]
+
+The RHS is symmetric: \( 2f(y) + yx = xy + 2f(y) \). The original RHS is \( 2f(x) + xy \). So:
+\[
+f(xf(y) + f(x)) = f(yf(x) + f(y)) \tag{9}
+\]
+
+Since \( f \) is **injective**, the arguments must be equal:
+\[
+xf(y) + f(x) = yf(x) + f(y) \tag{10}
+\]
+
+This is a powerful functional relation. Rearranging:
+\[
+xf(y) - f(y) = yf(x) - f(x)
+\]
+\[
+f(y)(x - 1) = f(x)(y - 1) \tag{11}
+\]
+
+---
+
+### Step 6: Derive the linear form
+
+Equation (11) holds for **all real \( x, y \)**.
+
+For \( x \neq 1 \) and \( y \neq 1 \), we can write:
+\[
+\frac{f(x)}{x - 1} = \frac{f(y)}{y - 1}
+\]
+
+This means the expression \( \frac{f(x)}{x-1} \) is **constant** for all \( x \neq 1 \). Let that constant be \( c \). Then:
+\[
+f(x) = c(x - 1) \quad \text{for all } x \neq 1
+\]
+
+By surjectivity and continuity of the solution form (we can take limits or just use the functional equation at \( x = 1 \) to determine \( f(1) \) consistently), this formula must hold for \( x = 1 \) as well.
+
+---
+
+### Step 7: Determine the constant \( c \)
+
+We know \( f(t) = 0 \) for some \( t \). Using \( f(x) = c(x - 1) \):
+\[
+f(t) = c(t - 1) = 0
+\]
+So either \( c = 0 \) or \( t = 1 \).
+
+**Case 1: \( c = 0 \).** Then \( f(x) = 0 \) for all \( x \). Plug into original: \( f(xf(y)+f(x)) = f(0) = 0 \). RHS: \( 2f(x) + xy = 0 + xy = xy \). For all \( x, y \), \( 0 = xy \) — false. So \( c \neq 0 \).
+
+**Therefore, \( t = 1 \).** So \( f(1) = c(1-1) = 0 \).
+
+Thus \( f(1) = 0 \), and \( f(t) = 0 \) with \( t = 1 \), which is consistent.
+
+---
+
+### Step 8: Find \( c \) from the original equation
+
+Now we have \( f(x) = c(x - 1) \), and we know \( f(1) = 0 \).
+
+Plug \( f(x) = c(x-1) \) into the original equation (1):
+
+**LHS:**
+First compute \( f(y) = c(y-1) \), then \( xf(y) = xc(y-1) \). Also \( f(x) = c(x-1) \).
+\[
+\text{Argument} = xf(y) + f(x) = c x (y-1) + c(x-1) = c[xy - x + x - 1] = c(xy - 1)
+\]
+So:
+\[
+\text{LHS} = f(c(xy - 1)) = c(c(xy - 1) - 1) = c^2 xy - c^2 - c
+\]
+
+**RHS:**
+\[
+2f(x) + xy = 2c(x-1) + xy = xy + 2cx - 2c
+\]
+
+**Equating:**
+\[
+c^2 xy - c^2 - c = xy + 2cx - 2c
+\]
+
+This must hold for **all real \( x, y \)**.
+
+Compare coefficients:
+- Coefficient of \( xy \): \( c^2 = 1 \implies c = 1 \) or \( c = -1 \).
+- Coefficient of \( x \): On LHS, there is no pure \( x \) term (0). On RHS: \( 2c \). Thus \( 0 = 2c \implies c = 0 \).
+
+But we already rejected \( c = 0 \), and from \( xy \) coefficient we have \( c = \pm 1 \). Contradiction with \( c = 0 \) from the \( x \) term?
+
+Wait — let's re-check that carefully.
+
+**Re-check LHS expansion:**
+Argument = \( x f(y) + f(x) = x \cdot c(y-1) + c(x-1) = cxy - cx + cx - c = cxy - c \).
+
+Ah! The \( -cx + cx \) cancels! So:
+\[
+\text{Argument} = cxy - c
+\]
+Then:
+\[
+\text{LHS} = f(cxy - c) = c((cxy - c) - 1) = c(cxy - c - 1) = c^2 xy - c^2 - c
+\]
+
+**RHS:**
+\[
+2f(x) + xy = 2c(x-1) + xy = xy + 2cx - 2c
+\]
+
+**Equation:**
+\[
+c^2 xy - c^2 - c = 1 \cdot xy + 2c \cdot x - 2c
+\]
+
+For this to hold for **all \( x, y \)**:
+1. Coefficient of \( xy \): \( c^2 = 1 \) ⇒ \( c = 1 \) or \( c = -1 \).
+2. Coefficient of \( x \): On LHS = 0, on RHS = \( 2c \). So \( 0 = 2c \Rightarrow c = 0 \).
+
+This is a contradiction unless... let's double-check the RHS coefficient of \( x \).
+
+The RHS is \( xy + 2cx - 2c \). When we say "coefficient of \( x \)", this is treating \( y \) as an independent variable. Pick specific values to test:
+
+Set \( y = 0 \). Then the equation becomes:
+\[
+c^2 \cdot x \cdot 0 - c^2 - c = x \cdot 0 + 2cx - 2c
+\]
+\[
+-c^2 - c = 2cx - 2c
+\]
+This must hold for all \( x \). The LHS is constant; the RHS is linear in \( x \) unless \( 2c = 0 \). So \( c = 0 \).
+
+But \( c = 0 \) contradicts the \( xy \) term which requires \( c^2 = 1 \).
+
+**This suggests our derivation of \( f(x) = c(x-1) \) might be flawed, or there's a subtlety.**
+
+---
+
+### Step 9: Re-examine equation (11)
+
+We had:
+\[
+f(y)(x - 1) = f(x)(y - 1) \qquad \forall x, y \in \mathbb{R}
+\]
+
+Plug \( y = 1 \):
+\[
+f(1)(x - 1) = f(x) \cdot 0
+\]
+\[
+f(1)(x - 1) = 0 \quad \forall x
+\]
+
+This forces \( f(1) = 0 \). Good.
+
+Now plug \( x = 0 \):
+\[
+f(y)(0 - 1) = f(0)(y - 1)
+\]
+\[
+-f(y) = f(0)(y - 1)
+\]
+\[
+f(y) = -f(0)(y - 1) = f(0)(1 - y)
+\]
+
+Let \( c = -f(0) \), so \( f(y) = c(y - 1) \) for all \( y \).
+
+So the form \( f(x) = c(x-1) \) is correct, with \( c = -f(0) \).
+
+---
+
+### Step 10: Resolve the contradiction
+
+I must have made an algebra mistake in the verification. Let's re-plug \( f(x) = c(x-1) \) into the original equation with extreme care.
+
+**Given:** \( f(x) = c(x-1) \) for all \( x \), with \( c \) a constant.
+
+**Compute \( xf(y) \):**
+\( f(y) = c(y-1) \), so \( xf(y) = cx(y-1) = cxy - cx \).
+
+**Compute \( xf(y) + f(x) \):**
+\( = (cxy - cx) + c(x-1) = cxy - cx + cx - c = cxy - c \).
+
+So the argument is \( cxy - c = c(xy - 1) \).
+
+**Compute LHS = \( f(cxy - c) \):**
+\( = c((cxy - c) - 1) = c(cxy - c - 1) = c^2 xy - c^2 - c \). ✅
+
+**Compute RHS = \( 2f(x) + xy \):**
+\( f(x) = c(x-1) = cx - c \)
+\( 2f(x) = 2cx - 2c \)
+\( 2f(x) + xy = xy + 2cx - 2c \). ✅
+
+**Equation:**
+\[
+c^2 xy - c^2 - c = xy + 2cx - 2c \quad \forall x, y \in \mathbb{R}
+\]
+
+Now, pick \( x = 0, y = 0 \):
+LHS: \( -c^2 - c \)
+RHS: \( 0 + 0 - 2c = -2c \)
+So: \( -c^2 - c = -2c \Rightarrow -c^2 + c = 0 \Rightarrow c(c - 1) = 0 \).
+Thus \( c = 0 \) or \( c = 1 \).
+
+Pick \( x = 1, y = 0 \):
+LHS: \( c^2(1)(0) - c^2 - c = -c^2 - c \)
+RHS: \( 1 \cdot 0 + 2c(1) - 2c = 0 \).
+So: \( -c^2 - c = 0 \Rightarrow c(c+1) = 0 \Rightarrow c = 0 \) or \( c = -1 \).
+
+For both to hold simultaneously, we need \( c = 0 \).
+
+But does \( c = 0 \) work for all \( x, y \)?
+
+If \( c = 0 \), then \( f(x) = 0 \) for all \( x \).
+LHS: \( f(0 + 0) = 0 \).
+RHS: \( 0 + xy = xy \).
+\( 0 = xy \) for all \( x, y \) — false.
+
+**Contradiction. So there is NO function of the form \( f(x) = c(x-1) \) that works unless I made an error earlier.**
+
+---
+
+### Step 11: Find the flaw
+
+Go back to equation (9):
+\[
+f(xf(y) + f(x)) = xy + 2f(x) \quad \text{(original)}
+\]
+\[
+f(yf(x) + f(y)) = yx + 2f(y) \quad \text{(swapped)}
+\]
+
+Since RHS are not necessarily equal (\( 2f(x) \neq 2f(y) \) generally), **we cannot conclude the arguments of \( f \) are equal!**
+
+That was my mistake. Equation (9) is false. The RHS symmetries differ by \( 2f(x) \) vs \( 2f(y) \). They are only equal if \( f(x) = f(y) \) for all \( x, y \), i.e., \( f \) is constant, which we already know doesn't work.
+
+So \( f(xf(y) + f(x)) \neq f(yf(x) + f(y)) \) in general. The injectivity argument doesn't apply.
+
+---
+
+### Step 12: Fresh approach
+
+Let's restart from what we know.
+
+From Step 2, by plugging \( x = 1 \), we proved \( f \) is **injective**.
+From Step 3, \( f \) is **surjective** because \( f(f(y) + f(1)) = y + 2f(1) \) covers all reals.
+
+So \( f \) is bijective.
+
+Let \( f(0) = a \). From (2) with \( x = 0 \): \( f(a) = 2a \).
+
+Since \( f \) is surjective, pick \( u \) such that \( f(u) = 0 \). (This \( u \) exists; we called it \( t \) earlier.)
+
+From original equation with \( y = u \):
+\[
+f(x \cdot 0 + f(x)) = 2f(x) + xu
+\]
+\[
+f(f(x)) = 2f(x) + ux \tag{A}
+\]
+
+Now set \( x = u \) in (A):
+\[
+f(f(u)) = 2f(u) + u \cdot u
+\]
+\[
+f(0) = 0 + u^2 \Rightarrow a = u^2
+\]
+
+And set \( x = 0 \) in (A):
+\[
+f(f(0)) = 2f(0) + 0
+\]
+\[
+f(a) = 2a
+\]
+This matches what we already knew.
+
+---
+
+Now, in (A), let's plug \( x = f^{-1}(z) \), but maybe a better way:
+
+Since \( f \) is bijective, apply \( f^{-1} \) to both sides of (A):
+\[
+f(x) = f^{-1}(2f(x) + ux)
+\]
+Not immediately helpful.
+
+Instead, in (A), replace \( x \) with \( f(x) \):
+\[
+f(f(f(x))) = 2f(f(x)) + u f(x)
+\]
+
+But from (A), \( f(f(x)) = 2f(x) + ux \). Nest this:
+\[
+f(2f(x) + ux) = 2(2f(x) + ux) + u f(x) = 4f(x) + 2ux + uf(x)
+\]
+
+---
+
+Let's try a different path. Go back to original equation and set \( y = f^{-1}(z) \), i.e., \( z = f(y) \):
+
+For all \( x, z \in \mathbb{R} \) (since \( f \) is surjective):
+\[
+f(xz + f(x)) = 2f(x) + x f^{-1}(z) \tag{B}
+\]
+
+Now set \( x = 1 \):
+\[
+f(z + f(1)) = 2f(1) + f^{-1}(z)
+\]
+Let \( f(1) = b \):
+\[
+f(z + b) = 2b + f^{-1}(z)
+\]
+Solve for \( f^{-1}(z) \):
+\[
+f^{-1}(z) = f(z + b) - 2b \tag{C}
+\]
+
+Since \( f \) is bijective, \( f^{-1} \) is also a bijection from \( \mathbb{R} \) to \( \mathbb{R} \). Equation (C) expresses \( f^{-1} \) in terms of \( f \).
+
+---
+
+Now apply \( f \) to both sides of (C) with argument \( z \):
+\[
+z = f(f(z + b) - 2b) \tag{D}
+\]
+
+Also, from (C), shift \( z \) by something: replace \( z \) with \( z - b \):
+\[
+f^{-1}(z - b) = f(z) - 2b
+\]
+Apply \( f \) to both sides:
+\[
+z - b = f(f(z) - 2b) \tag{E}
+\]
+
+---
+
+Now set \( z = f(x) \) in (D):
+Wait, (D) holds for all \( z \). Let's try to find a relation.
+
+From (D): \( f(f(z+b) - 2b) = z \).
+Compare with (A): \( f(f(x)) = 2f(x) + ux \).
+
+These look similar in structure.
+
+In (D), the argument of the outer \( f \) is \( f(z+b) - 2b \). In (A), it's \( f(x) \).
+
+Let's try to find \( f(1) = b \) and the zero-point \( u \) where \( f(u) = 0 \).
+
+From (C) with \( z = 0 \):
+\[
+f^{-1}(0) = f(b) - 2b
+\]
+But by definition, \( u = f^{-1}(0) \). So:
+\[
+u = f(b) - 2b \tag{F}
+\]
+
+---
+
+Now, from original equation with \( x = u \), \( y = 1 \):
+\[
+f(u f(1) + f(u)) = 2f(u) + u \cdot 1
+\]
+\[
+f(u b + 0) = 0 + u
+\]
+\[
+f(ub) = u \tag{G}
+\]
+
+---
+
+From (C) with \( z = ub \):
+\[
+f^{-1}(ub) = f(ub + b) - 2b
+\]
+But from (G), \( f(ub) = u \). Since \( f \) is injective and \( f(u) = 0 \), we might find a pattern.
+
+Actually, from (G), apply \( f \) to both sides: \( f(f(ub)) = f(u) = 0 \).
+But from (A) with \( x = ub \): \( f(f(ub)) = 2f(ub) + u(ub) = 2u + u^2 b \).
+So \( 2u + u^2 b = 0 \).
+
+If \( u \neq 0 \), then \( 2 + u b = 0 \Rightarrow b = -\frac{2}{u} \).
+
+If \( u = 0 \), then \( f(0) = 0 \) (since \( f(u)=0 \)). Then \( a = f(0) = 0 \), and from \( a = u^2 \), \( 0 = 0 \) consistent.
+
+---
+
+Let's test \( u = 0 \):
+
+If \( u = 0 \), then \( f(0) = 0 \). From (A): \( f(f(x)) = 2f(x) \).  
+
+From original with \( x = 0 \): \( f(f(0)) = 2f(0) + 0 \) ⇒ \( f(0) = 0 \) (consistent).
+
+From original with \( y = 0 \):
+\[
+f(x f(0) + f(x)) = 2f(x) + 0
+\]
+\[
+f(0 + f(x)) = 2f(x)
+\]
+\[
+f(f(x)) = 2f(x)
+\]
+
+Combined with \( f(f(x)) = 2f(x) \) from (A) — consistent.
+
+Now, since \( f \) is surjective, for any \( t \in \mathbb{R} \), there's some \( x \) with \( f(x) = t \). Then \( f(t) = f(f(x)) = 2f(x) = 2t \).
+
+So \( f(t) = 2t \) for all \( t \in \mathbb{R} \).
+
+Check if \( f(x) = 2x \) works in the original equation:
+
+LHS: \( f(x f(y) + f(x)) = f(x \cdot 2y + 2x) = f(2xy + 2x) = 2(2xy + 2x) = 4xy + 4x \).
+
+RHS: \( 2f(x) + xy = 2(2x) + xy = 4x + xy \).
+
+\( 4xy + 4x = xy + 4x \implies 4xy = xy \implies 3xy = 0 \) for all \( x,y \) — false.
+
+So \( u \neq 0 \).
+
+---
+
+Thus \( u \neq 0 \), and we have:
+\[
+b = f(1) = -\frac{2}{u}
+\]
+and also \( a = f(0) = u^2 \).
+
+From (F): \( u = f(b) - 2b \).
+
+Now, \( b = -2/u \). What is \( f(b) \)?
+
+From the original equation with \( x = b, y = 1 \):
+\[
+f(b f(1) + f(b)) = 2f(b) + b \cdot 1
+\]
+\[
+f(b \cdot b + f(b)) = 2f(b) + b
+\]
+\[
+f(b^2 + f(b)) = 2f(b) + b \tag{H}
+\]
+
+Also, from (A) with \( x = b \):
+\[
+f(f(b)) = 2f(b) + u b
+\]
+Since \( ub = u(-2/u) = -2 \):
+\[
+f(f(b)) = 2f(b) - 2 \tag{I}
+\]
+
+---
+
+We also know from (F): \( f(b) = u + 2b = u + 2(-2/u) = u - 4/u \).
+
+So \( f(b) \) is expressed in terms of \( u \).
+
+Now use (C): \( f^{-1}(z) = f(z+b) - 2b \) with \( z = b \):
+\[
+f^{-1}(b) = f(2b) - 2b
+\]
+Apply \( f \): \( b = f(f(2b) - 2b) \).
+
+---
+
+This is getting messy. A cleaner method: use the standard Cauchy-like approach.
+
+Since \( f \) is bijective, let \( P(x, y) \) denote the original equation.
+
+Pick \( x \) such that \( f(x) = 0 \) — we called this \( u \). We know \( u \) exists, is nonzero, and \( f(u) = 0 \).
+
+From (A): \( f(f(x)) = 2f(x) + ux \) for all \( x \).
+
+Now apply \( f \) again to (A):
+\[
+f(f(f(x))) = f(2f(x) + ux)
+\]
+But also from (A) with argument \( f(x) \):
+\[
+f(f(f(x))) = 2f(f(x)) + u f(x) = 2(2f(x) + ux) + u f(x) = 4f(x) + 2ux + u f(x)
+\]
+So:
+\[
+f(2f(x) + ux) = (4+u)f(x) + 2ux \tag{J}
+\]
+
+---
+
+Now, in the original equation, set \( y = u \):
+\[
+f(x \cdot 0 + f(x)) = 2f(x) + x u
+\]
+which is just (A) again.
+
+In the original equation, set \( x = u \):
+\[
+f(u f(y) + f(u)) = 2f(u) + u y
+\]
+\[
+f(u f(y) + 0) = 0 + uy
+\]
+\[
+f(u f(y)) = u y \tag{K}
+\]
+
+Since \( f \) is bijective, we can set \( f(y) = t \) (so \( y = f^{-1}(t) \)):
+\[
+f(u t) = u f^{-1}(t) \quad \forall t \in \mathbb{R}
+\]
+Or:
+\[
+f^{-1}(t) = \frac{f(ut)}{u} \tag{L}
+\]
+
+For \( t = 0 \): \( f^{-1}(0) = \frac{f(0)}{u} = \frac{u^2}{u} = u \), which matches \( f(u)=0 \). ✅
+
+---
+
+Now we have a direct formula for \( f^{-1} \). Also from (K) with \( y = 1 \):
+\[
+f(u f(1)) = u \cdot 1 = u
+\]
+But \( f(1) = b = -2/u \), so:
+\[
+f(u \cdot (-2/u)) = f(-2) = u
+\]
+Thus \( f(-2) = u \).
+
+From (L) with \( t = u \):
+\[
+f^{-1}(u) = \frac{f(u^2)}{u}
+\]
+But we know \( f(u) = 0 \), so \( f^{-1}(0) = u \).
+
+---
+
+Now, from (C): \( f^{-1}(z) = f(z+b) - 2b \). Equate with (L):
+\[
+\frac{f(uz)}{u} = f(z + b) - 2b
+\]
+Multiply by \( u \):
+\[
+f(uz) = u f(z + b) - 2ub
+\]
+Replace \( z \) with \( z - b \):
+\[
+f(u(z - b)) = u f(z) - 2ub
+\]
+So:
+\[
+f(uz - ub) = u f(z) - 2ub \tag{M}
+\]
+
+Now \( b = -2/u \), so \( ub = -2 \). Also \( 2ub = -4 \).
+
+So \( -ub = 2 \), and (M) becomes:
+\[
+f(uz + 2) = u f(z) + 4 \tag{N}
+\]
+
+---
+
+We also know from (A): \( f(f(z)) = 2f(z) + uz \).
+
+Let's try to compute \( f(uz + 2) \) in another way.
+
+From (A) with \( x = z \): \( f(f(z)) = 2f(z) + uz \).
+
+Let \( w = f(z) \). Then \( z = f^{-1}(w) \), and:
+\[
+f(w) = 2w + u f^{-1}(w)
+\]
+Using (L): \( f^{-1}(w) = \frac{f(uw)}{u} \). So:
+\[
+f(w) = 2w + u \cdot \frac{f(uw)}{u} = 2w + f(uw) \tag{O}
+\]
+
+This is beautiful! Set \( w = z \):
+\[
+f(uz) = f(z) - 2z \tag{P}
+\]
+
+---
+
+Now compare (N) and (P). Shift \( z \) in (P):
+From (P): \( f(u(z + \frac{2}{u})) = f(z + \frac{2}{u}) - 2(z + \frac{2}{u}) \).
+
+But \( \frac{2}{u} = -b \), so this is \( f(uz - ub) \) which we already handled.
+
+Wait, (P) directly: \( f(uz) = f(z) - 2z \).
+
+Plug \( uz + 2 \) into (P). Let \( z' \) be such that \( uz' = uz + 2 \Rightarrow z' = z + \frac{2}{u} \).
+\[
+f(uz + 2) = f(u z') = f(z') - 2z' = f\left(z + \frac{2}{u}\right) - 2\left(z + \frac{2}{u}\right)
+\]
+
+But from (N): \( f(uz + 2) = u f(z) + 4 \).
+
+Equate:
+\[
+f\left(z + \frac{2}{u}\right) - 2z - \frac{4}{u} = u f(z) + 4 \tag{Q}
+\]
+
+---
+
+Now we need another relation for \( f(z + \frac{2}{u}) \).
+
+From (O): \( f(w) = 2w + f(uw) \). Let \( w = z + \frac{2}{u} \):
+\[
+f\left(z + \frac{2}{u}\right) = 2\left(z + \frac{2}{u}\right) + f\left(u(z + \frac{2}{u})\right) = 2z + \frac{4}{u} + f(uz + 2)
+\]
+
+But \( f(uz + 2) = u f(z) + 4 \) from (N). So:
+\[
+f\left(z + \frac{2}{u}\right) = 2z + \frac{4}{u} + u f(z) + 4
+\]
+
+Plug into (Q):
+\[
+\left[2z + \frac{4}{u} + u f(z) + 4\right] - 2z - \frac{4}{u} = u f(z) + 4
+\]
+The \( 2z \) and \( 4/u \) cancel:
+\[
+u f(z) + 4 = u f(z) + 4
+\]
+An identity. So no contradiction, but also no new information!
+
+---
+
+Let's step back and use (P) and (O) together elegantly.
+
+We have two relations:
+1. \( f(ux) = f(x) - 2x \)  (P)
+2. \( f(x) = 2x + f(ux) \)  (O with \( w = x \))
+
+Substitute (P) into (O):
+\[
+f(x) = 2x + (f(x) - 2x) = f(x)
+\]
+Also an identity. This means (P) and (O) are equivalent; they don't independently constrain \( f \).
+
+We need something new.
+
+---
+
+Go back to (L): \( f^{-1}(t) = \frac{f(ut)}{u} \).
+
+Apply \( f \) to both sides:
+\[
+t = f\left(\frac{f(ut)}{u}\right)
+\]
+
+Now from (P): \( f(ux) = f(x) - 2x \). Set \( x = ut \):
+\[
+f(u \cdot ut) = f(ut) - 2ut
+\]
+\[
+f(u^2 t) = f(ut) - 2ut \tag{R}
+\]
+
+From (P) again with \( x = t \): \( f(ut) = f(t) - 2t \).
+
+From (P) with \( x = ut \): \( f(u \cdot ut) = f(ut) - 2ut \), which is (R).
+
+Chain them: \( f(u^2 t) = (f(t) - 2t) - 2ut = f(t) - 2t(1 + u) \).
+
+But \( u^2 = a = f(0) \). So \( f(f(0) t) = f(t) - 2t(1+u) \).
+
+---
+
+Alternatively, let's find \( u \) concretely.
+
+From (P) with \( x = 1 \):
+\[
+f(u) = f(1) - 2 \cdot 1
+\]
+But \( f(u) = 0 \), \( f(1) = b = -2/u \). So:
+\[
+0 = -\frac{2}{u} - 2 \Rightarrow \frac{2}{u} = -2 \Rightarrow u = -1
+\]
+
+**Boom!** We've found \( u \).
+
+---
+
+### Step 13: \( u = -1 \), so \( f(-1) = 0 \), and \( f(0) = u^2 = 1 \).
+
+Also \( b = f(1) = -2/u = 2 \).
+
+So \( f(0) = 1, f(1) = 2, f(-1) = 0 \).
+
+Now (P) becomes (\( u = -1 \)):
+\[
+f(-x) = f(x) - 2x \tag{P'}
+\]
+
+And (O) is the same: \( f(x) = 2x + f(-x) \), which is just a rearrangement of (P'):
+\[
+f(-x) = f(x) - 2x \iff f(x) = 2x + f(-x)
+\]
+So still equivalent.
+
+---
+
+Now (A): \( f(f(x)) = 2f(x) + ux = 2f(x) - x \). \hfill (A')
+
+From (L): \( f^{-1}(t) = -f(-t) \) since \( u = -1 \). \hfill (L')
+
+So \( f^{-1}(t) = -f(-t) \). Apply \( f \) to both sides: \( t = f(-f(-t)) \). Or equivalently, \( f^{-1}(-x) = -f(x) \).
+
+---
+
+Now use the original equation with \( u = -1 \):
+
+From (K): \( f(-f(y)) = -y \). \hfill (K')
+
+So \( f \) composed with \( -f \) gives negative identity. This means \( f \) is an odd-bijective-like function with a special property.
+
+From (K'): Replace \( y \) with \( f^{-1}(y) \): \( f(-y) = -f^{-1}(y) \).
+
+But from (L'): \( f^{-1}(t) = -f(-t) \). So \( f(-y) = -(-f(-(-y))) = f(y) \)? 
+
+Wait: \( f^{-1}(y) = -f(-y) \). So \( -f^{-1}(y) = f(-y) \). And (K') says \( f(-y) = -f^{-1}(y) \). Exactly matches.
+
+---
+
+From (A'): \( f(f(x)) = 2f(x) - x \).
+
+Now, can we guess \( f(x) = x+1 \)?
+
+Check: \( f(0)=1 \) ✓, \( f(1)=2 \) ✓, \( f(-1)=0 \) ✓.
+\( f(f(x)) = f(x+1) = (x+1)+1 = x+2 \). RHS: \( 2(x+1) - x = 2x+2-x = x+2 \) ✓.
+(K'): \( f(-f(y)) = f(-(y+1)) = f(-y-1) = (-y-1)+1 = -y \) ✓.
+
+So \( f(x) = x+1 \) satisfies all our derived properties.
+
+---
+
+Now prove it's the only one.
+
+From (A'): \( f(f(x)) = 2f(x) - x \). This is a functional equation on its own. Let's define a sequence.
+
+For any \( x \), define \( x_0 = x \), \( x_{n+1} = f(x_n) \). Then (A') gives:
+\[
+x_{n+2} = 2x_{n+1} - x_n
+\]
+This is a linear recurrence with characteristic equation \( r^2 - 2r + 1 = 0 \Rightarrow (r-1)^2 = 0 \).
+
+So \( x_n = A + Bn \) for constants \( A, B \) depending on \( x \).
+
+\( x_0 = A = x \).
+\( x_1 = f(x) = A + B \Rightarrow B = f(x) - x \).
+
+Thus:
+\[
+x_n = x + n(f(x) - x) \tag{S}
+\]
+This means \( f^{(n)}(x) = x + n(f(x) - x) \) for all integers \( n \ge 0 \). (By induction.)
+
+Now, does this hold for negative \( n \) as well? Since \( f \) is bijective, \( f^{-1} \) exists. From (A'), apply \( f^{-1} \):
+\[
+f(x) = 2x - f^{-1}(x) \Rightarrow f^{-1}(x) = 2x - f(x)
+\]
+So the recurrence holds backward too. Thus (S) holds for all integers \( n \).
+
+In particular, for \( n = -1 \):
+\[
+f^{-1}(x) = x - (f(x) - x) = 2x - f(x)
+\]
+which matches.
+
+---
+
+Now, from (K'): \( f(-f(y)) = -y \).
+
+Let \( y \) be arbitrary. Set \( x = -f(y) \).
+
+From (S) with \( n = 2 \):
+\( f(f(x)) = x + 2(f(x) - x) \). But we already have that.
+
+More importantly, we can express \( f(-f(y)) \) via (S) if we know \( f(-f(y)) \) in terms of \( -f(y) \):
+
+Wait, (S) gives \( f^{(n)}(x) \). We have \( f(-f(y)) = -y \). This means applying \( f \) to \( -f(y) \) gives \( -y \). So \( f \) maps \( -f(y) \) to \( -y \).
+
+In (S), with \( x = -y \), \( n = 1 \): \( f(-y) = -y + (f(-y) - (-y)) = f(-y) \). Trivial.
+
+Better: use (P'): \( f(-x) = f(x) - 2x \).
+
+Set \( x = f(y) \):
+\( f(-f(y)) = f(f(y)) - 2f(y) \).
+
+But from (K'), LHS = \( -y \). From (A'), RHS = \( (2f(y) - y) - 2f(y) = -y \). Consistent, no new info.
+
+---
+
+To pin down \( f \), use the original equation with \( x = 1 \) and arbitrary \( y \):
+
+From (3): \( f(f(y) + f(1)) = 2f(1) + y \). We know \( f(1) = 2 \).
+
+So: \( f(f(y) + 2) = 4 + y \). \hfill (T)
+
+Now apply \( f^{-1} \) to both sides. From \( f^{-1}(z) = 2z - f(z) \):
+\( f(y) + 2 = f^{-1}(4+y) = 2(4+y) - f(4+y) = 8 + 2y - f(4+y) \).
+
+So: \( f(4+y) + f(y) = 8 + 2y - 2 = 6 + 2y \). \hfill (U)
+
+This holds for all \( y \).
+
+---
+
+Now use (P'): \( f(-x) = f(x) - 2x \).
+
+From (U), replace \( y \) with \( y-2 \):
+\( f(y+2) + f(y-2) = 6 + 2(y-2) = 2 + 2y \). \hfill (U')
+
+---
+
+Now, from (S), we have: for any \( x \),
+\( f(f(x)) = x + 2(f(x) - x) \), i.e., \( f(f(x)) - f(x) = f(x) - x \).
+
+Let \( d(x) = f(x) - x \). Then \( d(f(x)) = d(x) \). So \( d \) is invariant under \( f \).
+
+Thus for any integer \( n \), \( d(f^{(n)}(x)) = d(x) \).
+
+---
+
+Now, \( f(0) = 1 \), so \( d(0) = 1 \). Thus \( d(1) = f(1) - 1 = 2-1 = 1 \).
+
+Also \( f(-1)=0 \), so \( d(-1) = 0 - (-1) = 1 \). So \( d(0) = d(1) = d(-1) = 1 \).
+
+From (U'): set \( y = 0 \): \( f(2) + f(-2) = 2 + 0 = 2 \).
+
+Now, \( f(-2) = f(2) - 2(2) = f(2) - 4 \) by (P'). So:
+\( f(2) + f(2) - 4 = 2 \Rightarrow 2f(2) = 6 \Rightarrow f(2) = 3 \).
+Then \( d(2) = f(2) - 2 = 1 \).
+
+Set \( y = 1 \) in (U'): \( f(3) + f(-1) = 2 + 2 = 4 \). \( f(-1) = 0 \), so \( f(3) = 4 \). \( d(3) = 1 \).
+
+Set \( y = -1 \): \( f(1) + f(-3) = 2 - 2 = 0 \). \( f(1) = 2 \), so \( f(-3) = -2 \). \( d(-3) = -2 - (-3) = 1 \).
+
+Set \( y = 3 \): \( f(5) + f(1) = 2 + 6 = 8 \Rightarrow f(5) = 6 \). \( d(5) = 1 \).
+
+A clear pattern: \( d(x) = 1 \) for all integer inputs we can reach.
+
+---
+
+Now, from (S): \( x_n = x + n d(x) \). Since \( d(x) \) is invariant, we can show \( f \) shifts points by the constant \( d(x) \) along arithmetic progressions.
+
+Pick any \( x \). Let \( c = d(x) = f(x) - x \).
+
+From original equation with \( y = x \):
+\[
+f(x f(x) + f(x)) = 2f(x) + x^2
+\]
+But \( x f(x) + f(x) = f(x)(x+1) \).
+
+Not directly helpful. Let's use (T) in a clever way.
+
+From (T): \( f(f(y)+2) = y+4 \). Apply (S) with \( x = f(y)+2 \), \( n = -1 \) (i.e., use \( f^{-1} \)):
+\( f^{-1}(f(y)+2) = \) ... Actually, (S) says \( f^{-1}(z) = z - d(z) \).
+
+But we know \( d(z) = d(f(y)+2) = d(y) \) by invariance?
+
+Wait: \( f(y) \) is in the orbit of \( y \). If \( d \) is constant on orbits, then \( d(f(y)+2) = d(y+2) \) perhaps?
+
+Actually, we know \( d \) is invariant under \( f \), i.e., \( d(f(x)) = d(x) \). But \( f(y) + 2 \) is NOT necessarily \( f(\text{something}) \). However, we can compute \( f^{-1}(f(y)+2) \) from (T):
+
+From (T): \( f(f(y)+2) = y+4 \). Apply \( f^{-1} \) to both sides:
+\( f(y)+2 = f^{-1}(y+4) \).
+But \( f^{-1}(z) = 2z - f(z) \) from (A'). So:
+\( f(y)+2 = 2(y+4) - f(y+4) \Rightarrow f(y+4) + f(y) = 2y + 6 \). \hfill (V)
+
+Compare with (U): \( f(4+y) + f(y) = 6 + 2y \). Same equation! So (T) and (U) are equivalent.
+
+---
+
+Now, (V) is a linear functional equation. Let's see if we can solve it with \( d(x) \) constant.
+
+Suppose \( f(x) = x + 1 \). Then \( f(y+4) + f(y) = (y+5) + (y+1) = 2y+6 \) ✓.
+
+Suppose \( f(x) = x + c \) for some constant \( c \). Then \( f(y+4) + f(y) = (y+4+c) + (y+c) = 2y + 4 + 2c \). For this to equal \( 2y+6 \), we need \( 4+2c = 6 \Rightarrow c = 1 \). So \( f(x) = x+1 \) is the only affine solution.
+
+But we still need to prove \( f \) is affine. We have \( d(x) \) invariant under \( f \) and \( d(0)=1, d(1)=1, d(2)=1, d(3)=1, \dots \).
+
+---
+
+From (S), we have for any \( x \):
+\( f^{(n)}(x) = x + n d(x) \).
+
+Since \( f \) is bijective, orbits cannot cross. Suppose for some \( x \), \( d(x) \neq 1 \). Without loss, let \( d(x) = c > 0 \) (if \( c=0 \), \( f(x)=x \), but then \( f(f(x))=2f(x)-x \) gives \( x = 2x-x=x \) okay, but also plug into original...).
+
+If \( d(x) = c \), then the orbit of \( x \) is \( \{ x + nc : n \in \mathbb{Z} \} \).
+
+Now consider \( y \) such that \( f(y) = 0 \). We know \( y = -1 \) works and \( d(-1)=1 \). The orbit of -1 is \( \{-1, 0, 1, 2, 3, \dots\} \).
+
+Now, the orbits partition \( \mathbb{R} \). Each orbit is an arithmetic progression with difference \( d \) (which is constant on the orbit).
+
+Take any \( x \) not in the orbit of -1. Let its orbit have difference \( c \neq 1 \).
+
+From (V): \( f(x+4) + f(x) = 2x + 6 \).
+
+But \( f(x) = x + d(x) = x + c \). \( f(x+4) = f(x) + 4? \) Not necessarily, because \( x+4 \) might not be in the same orbit as \( x \) unless \( 4 \) is a multiple of \( c \).
+
+Actually, orbit is \( \{ \dots, x-2c, x-c, x, x+c, x+2c, \dots \} \). We only know \( f \) on this set. We don't know \( f(x+4) \) unless \( 4 \) is in the orbit step's integer multiples.
+
+But from (V), \( f(x+4) \) is determined: \( f(x+4) = 2x + 6 - (x+c) = x + 6 - c \).
+
+But also \( f(x+4) \) must be in the orbit of \( x+4 \), with its own shift \( d(x+4) \). However, \( x+4 \) is in some orbit.
+
+Now apply (V) to \( x-4 \): \( f(x) + f(x-4) = 2(x-4) + 6 = 2x - 2 \).
+So \( f(x-4) = 2x - 2 - (x+c) = x - 2 - c \).
+
+Then by (V) again on \( x+4 \): \( f(x+8) + f(x+4) = 2(x+4) + 6 = 2x + 14 \).
+\( f(x+8) = 2x+14 - (x+6-c) = x + 8 + c \).
+
+Similarly, \( f(x-8) = x - 8 + c \).
+
+We see a pattern: \( f(x+8) - (x+8) = c \). And \( f(x-8) - (x-8) = c \).
+
+In fact, by induction, \( f(x+8k) = (x+8k) + c \) for all integers \( k \).
+
+So the orbit of \( x \) doesn't just have step \( c \); along numbers congruent to \( x \) modulo 8, the shift is \( c \).
+
+But also the orbit of \( x \) under \( f \) is \( x + n c \). So \( f^{(n)}(x) = x + n c \).
+
+Now, \( f(x+8) = x + 8 + c \). This is NOT \( f(x) + 8 \) unless \( c = 1 \).
+
+But we can also compute \( f(x+8) \) using (S) if we know which orbit point \( x+8 \) is. Since \( f(x+8k) \) all have shift \( c \), the function restricted to \( \{ x + 8k \} \) looks like \( f(y) = y + c \).
+
+Now, take the original equation with this \( x \) and \( y = x \):
+\( f(x f(x) + f(x)) = 2f(x) + x^2 \).
+
+Compute LHS argument: \( x f(x) + f(x) = f(x)(x+1) = (x+c)(x+1) = x^2 + x + cx + c \).
+
+RHS: \( 2(x+c) + x^2 = x^2 + 2x + 2c \).
+
+So \( f(x^2 + (1+c)x + c) = x^2 + 2x + 2c \).
+
+Now, let \( M = x^2 + (1+c)x + c \). The RHS is \( x^2 + 2x + 2c \).
+
+We want to relate this to the shift pattern. For arbitrary \( x \), this is messy. But we can pick a specific \( x \) from an orbit with \( c \neq 1 \) and derive a contradiction.
+
+Suppose there exists \( x \) with \( c = d(x) \neq 1 \). Then consider \( x = 0 \)? No, we know \( d(0)=1 \). Consider \( x = c \) maybe?
+
+Since orbits partition \( \mathbb{R} \), pick any \( x \) with \( d(x) \neq 1 \). Let's try to use (T): \( f(f(y)+2) = y+4 \).
+
+Set \( y = x \): \( f(x+c+2) = x+4 \).
+
+Now, \( x+c+2 \): is this in the orbit of something? We don't know.
+
+But \( f(x+c+2) = x+4 \). So the shift at \( x+c+2 \) is:
+\( d(x+c+2) = f(x+c+2) - (x+c+2) = (x+4) - (x+c+2) = 2 - c \).
+
+But also, by the orbit invariance, \( d(f(z)) = d(z) \) for all \( z \).
+
+Since \( f(x) = x+c \), we have \( d(x+c) = d(x) = c \). So \( d(x+c) = c \).
+
+Now, \( x+c+2 \) is not necessarily \( f(x+2) \) unless \( f(x+2) = x+2 + d(x+2) \). We don't know \( d(x+2) \).
+
+However, we know \( d \) is constant on integer-spaced numbers if we use (V) repeatedly. We derived \( d(x+8k) = c \) for all integers \( k \). So \( d(x) = c \), \( d(x+8) = c \), \( d(x+16) = c \), etc.
+
+What about \( d(x+c+2) \)? We got \( 2-c \). 
+
+If \( c \neq 1 \), then \( 2-c \neq c \) unless \( c=1 \). So \( d(x+c+2) \neq d(x) \). That's fine; it's a different point's orbit.
+
+The key: we have a global functional equation (V) that forces consistency among all orbits.
+
+Take (V): \( f(y+4) + f(y) = 2y + 6 \).
+
+Apply to \( y = x \):
+\( f(x+4) + (x+c) = 2x + 6 \Rightarrow f(x+4) = x + 6 - c \).
+Thus \( d(x+4) = f(x+4) - (x+4) = (x+6-c) - (x+4) = 2 - c \).
+
+Apply (V) to \( y = x+4 \):
+\( f(x+8) + (x+6-c) = 2(x+4) + 6 = 2x+14 \Rightarrow f(x+8) = x+8+c \).
+Thus \( d(x+8) = c \). Matches our earlier induction.
+
+Apply (V) to \( y = x+8 \):
+\( f(x+12) + (x+8+c) = 2x+22 \Rightarrow f(x+12) = x+14 - c \).
+\( d(x+12) = 2-c \).
+
+Pattern: \( d(x+4m) = \begin{cases} c & m \text{ even} \\ 2-c & m \text{ odd} \end{cases} \)
+
+Now, \( d \) is invariant under \( f \): \( d(f(z)) = d(z) \).
+
+Take \( z = x \). \( f(x) = x+c \). \( d(x) = c \). We need \( d(x+c) = c \).
+
+So \( d \) at the point \( x+c \) equals \( c \). But from the pattern, \( d \) at \( x+4m \) alternates between \( c \) and \( 2-c \). Unless \( c = 2-c \Rightarrow c = 1 \), these are different.
+
+So \( x+c \) must equal \( x + 4m \) for some EVEN \( m \) (to give \( d = c \)).
+
+Thus \( c = 4m \) for some even integer \( m \).
+
+Similarly, take \( z = x+4 \). \( f(x+4) = x+6-c \). \( d(x+4) = 2-c \). By invariance, \( d(f(x+4)) = 2-c \).
+
+So \( d(x+6-c) = 2-c \).
+
+From the pattern, \( d = 2-c \) occurs at \( x + 4m \) for odd \( m \). So \( x+6-c = x + 4m \) for some odd \( m \).
+Thus \( 6 - c = 4m \) with \( m \) odd.
+
+From \( c = 4m_1 \) (even \( m_1 \)), and \( 6 - c = 4m_2 \) (odd \( m_2 \)).
+
+Add them: \( 6 = 4(m_1 + m_2) \). So \( m_1 + m_2 = 1.5 \), which is not an integer.
+
+**Contradiction.**
+
+Therefore, our assumption that there exists \( x \) with \( c = d(x) \neq 1 \) is false.
+
+Hence \( d(x) = 1 \) for **all** real \( x \).
+
+---
+
+### Step 14: Conclusion
+
+\( d(x) = f(x) - x = 1 \) for all \( x \), so \( f(x) = x + 1 \) for all real \( x \).
+
+---
+
+## Final Verification
+
+We already checked:
+- LHS: \( f(xf(y) + f(x)) = f(x(y+1) + x+1) = f(xy + 2x + 1) = xy + 2x + 2 \)
+- RHS: \( 2f(x) + xy = 2x + 2 + xy \)
+They match for all real \( x, y \).
+
+---
+
+**Final Answer:** The unique solution is \( \boxed{f(x) = x + 1} \).
